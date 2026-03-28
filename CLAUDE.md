@@ -60,7 +60,7 @@ Do NOT dump reference content only into chat — the student would have to scrol
 
 Check `render_mode` in `socratex.config.md` to decide output behavior:
 
-**`render_mode: browser`** (default — works everywhere):
+**`render_mode: desktop`** (for Claude Code Desktop/CLI):
 - Write reference content to `session.html` in the current book directory
 - Use this HTML template (KaTeX CDN + 3-second auto-refresh):
   ```html

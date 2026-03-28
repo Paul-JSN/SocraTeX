@@ -8,7 +8,7 @@ show_original_terms: false
 term_format: "translated (original)"
 
 ## Rendering
-render_mode: browser
+render_mode: desktop
 
 ## Study Preferences
 difficulty: adaptive

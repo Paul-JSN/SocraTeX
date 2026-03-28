@@ -12,7 +12,7 @@ Otherwise, parse $ARGUMENTS as key=value pairs. Supported keys:
 - `format` → updates `term_format` (quoted string)
 - `difficulty` → updates `difficulty` (easy, medium, hard, adaptive)
 - `hints` → updates `hints_before_answer` (integer)
-- `render` → updates `render_mode` (browser or vscode)
+- `render` → updates `render_mode` (desktop or vscode)
 
 For each key=value pair, use the Edit tool to modify the corresponding line in `socratex.config.md`. Confirm each change.
 
@@ -23,5 +23,5 @@ After all changes, display the updated settings table.
 - `/settings lang=ko` → change language to Korean
 - `/settings lang=ja terms=on` → change language to Japanese, enable term annotation
 - `/settings difficulty=hard hints=5` → harder difficulty, 5 hints before answer
-- `/settings render=browser` → output session.html, auto-open in browser
+- `/settings render=desktop` → output session.html, auto-open in browser (Claude Code Desktop/CLI)
 - `/settings render=vscode` → output session.md, view in VS Code Markdown Preview
