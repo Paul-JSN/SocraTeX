@@ -194,9 +194,26 @@ hints_before_answer: 3        # Minimum hints before revealing solutions
 | Python 3.10+ | For the PDF converter |
 | [MinerU API token](https://mineru.net/apiManage) | Free tier available |
 | Claude Code or Claude.ai | Any active plan |
-| VS Code + [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) | Recommended for LaTeX rendering |
+| VS Code + [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) | Optional — for session.md preview |
 
 > **Tip:** Open this repo in VS Code — it will automatically recommend the right extensions (`.vscode/extensions.json`).
+>
+> **No VS Code?** SocraTeX auto-generates `session.html` with KaTeX CDN. Just open it in any browser — it auto-refreshes every 3 seconds.
+
+---
+
+## Works With Any AI Provider
+
+SocraTeX slash commands are Claude Code native, but the study system works with any AI:
+
+| Provider | How to use |
+|----------|-----------|
+| **Claude Code** | Automatic — `/study`, `/exercise`, etc. just work |
+| **Claude.ai** | Paste `claude-ai/system-prompt.md` into Custom Instructions |
+| **Codex / OpenClaw** | Load `CLAUDE.md` + relevant skill `.md` files as system context |
+| **Gemini / GPT / Others** | Same — use `CLAUDE.md` as system prompt, load skills as needed |
+
+The skill files in `.claude/commands/` are plain Markdown instructions. Any AI that can read text can follow them.
 
 ---
 
@@ -205,7 +222,7 @@ hints_before_answer: 3        # Minimum hints before revealing solutions
 ```
 SocraTeX/
 ├── converter/           # PDF → Markdown (Python CLI)
-├── .claude/commands/    # 11 slash commands for Claude Code
+├── .claude/commands/    # 15 slash commands for Claude Code
 ├── claude-ai/           # System prompt for Claude.ai
 ├── books/               # Your converted textbooks (gitignored)
 ├── socratex.config.md   # User settings

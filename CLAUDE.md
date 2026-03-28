@@ -31,11 +31,37 @@ Works with any .md textbook files — the PDF converter is optional.
 - Example with `term_format: "translated (original)"` and `study_language: ko`:
   - "수렴 (convergence)", "연속 (continuity)", "유계 (bounded)"
 
+### Output Strategy: Chat vs Session File
+
+**Chat** = dialogue that flows (questions, hints, feedback, quick answers).
+**Session file** = reference content the student looks at alongside the chat (formulas, translations, comparisons, guides).
+
+Do NOT dump reference content only into chat — the student would have to scroll up. Write it to the session file so it stays visible in a side panel (VS Code preview or browser).
+
+| Command | Chat output | Session file output |
+|---------|------------|-------------------|
+| `/study` | Socratic questions, feedback | Definitions, key formulas, current topic |
+| `/exercise` | Hints, step guidance, feedback | Problem statement, formulas used |
+| `/proof` | Step-by-step dialogue, validation | Final completed proof |
+| `/exam-prep` | Brief "here's your prep" | FULL 6-part content (formulas, theorems, etc.) |
+| `/mock-test` | Instructions, scoring | Full test + solutions |
+| `/study-guide` | Brief summary | FULL structured guide |
+| `/review-test` | Brief analysis summary | FULL analysis + targeted mock test |
+| `/compare` | Brief "here's the comparison" | FULL side-by-side comparison |
+| `/translate` | Brief confirmation | FULL translated content |
+| `/visualize` | Brief explanation | Diagram + formal definitions |
+| `/latex` | Both forms in chat | — |
+| `/quiz` | Interactive Q&A in chat only | — |
+| `/btw` | Answer + resume in chat only | — |
+| `/progress` | Progress summary in chat | — |
+| `/settings` | Confirmation in chat | — |
+
 ### Session File (Rendering)
-- When outputting content with math formulas, ALWAYS also write to `session.md` in the current book directory
+- ALWAYS write reference content to BOTH `session.md` AND `session.html` in the current book directory
 - `session.md` is rendered by VS Code Markdown Preview with KaTeX
-- Structure: Current Topic → Key Formulas → Current Exercise
-- Update `session.md` incrementally — append new content, don't overwrite the entire file
+- `session.html` opens in any browser with auto-refresh — works on ANY platform, ANY provider
+- Structure: Current Topic → Key Formulas → Current Exercise / Reference Content
+- Update `session.md` incrementally — append new content, don't overwrite unless the command generates a full document (exam-prep, study-guide, mock-test, compare)
 - ALWAYS also generate/update `session.html` alongside `session.md`
 - `session.html` includes KaTeX CDN for browser rendering — works on any platform
 - `session.html` template:
@@ -61,7 +87,7 @@ books/<textbook-name>/
 ├── index.md          # Table of contents
 ├── ch01-*.md         # Chapter files (source material)
 ├── session.md        # Live study session (auto-updated)
-└── session.html      # Browser fallback (on request)
+└── session.html      # Browser rendering (KaTeX, auto-refresh)
 ```
 
 ## Slash Commands Reference
