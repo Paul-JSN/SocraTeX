@@ -57,14 +57,12 @@ Do NOT dump reference content only into chat — the student would have to scrol
 | `/settings` | Confirmation in chat | — |
 
 ### Session File (Rendering)
-- ALWAYS write reference content to BOTH `session.md` AND `session.html` in the current book directory
-- `session.md` is rendered by VS Code Markdown Preview with KaTeX
-- `session.html` opens in any browser with auto-refresh — works on ANY platform, ANY provider
-- Structure: Current Topic → Key Formulas → Current Exercise / Reference Content
-- Update `session.md` incrementally — append new content, don't overwrite unless the command generates a full document (exam-prep, study-guide, mock-test, compare)
-- ALWAYS also generate/update `session.html` alongside `session.md`
-- `session.html` includes KaTeX CDN for browser rendering — works on any platform
-- `session.html` template:
+
+Check `render_mode` in `socratex.config.md` to decide output behavior:
+
+**`render_mode: browser`** (default — works everywhere):
+- Write reference content to `session.html` in the current book directory
+- Use this HTML template (KaTeX CDN + 3-second auto-refresh):
   ```html
   <!DOCTYPE html>
   <html><head>
@@ -73,13 +71,24 @@ Do NOT dump reference content only into chat — the student would have to scrol
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <style>body{max-width:800px;margin:40px auto;padding:0 20px;font-family:Georgia,serif;line-height:1.8;font-size:18px}</style>
+  <style>body{max-width:800px;margin:40px auto;padding:0 20px;font-family:Georgia,serif;line-height:1.8;font-size:18px;color:#1a1a1a}h1,h2,h3{color:#2c3e50}code{background:#f4f4f4;padding:2px 6px;border-radius:3px}</style>
   </head><body>
-  [CONTENT HERE — convert markdown to HTML, keep $...$ and $$...$$ for KaTeX]
+  [CONTENT — convert markdown to HTML paragraphs/headings, keep $...$ and $$...$$ for KaTeX]
   <script>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}]});</script>
   </body></html>
   ```
-- The `<meta http-equiv="refresh" content="3">` auto-refreshes every 3 seconds
+- On FIRST write of a session, auto-open the file: run `start session.html` (Windows) or `open session.html` (Mac) or `xdg-open session.html` (Linux) via Bash tool
+- Subsequent updates: just overwrite the file — browser auto-refreshes via meta tag
+
+**`render_mode: vscode`** (for VS Code users):
+- Write reference content to `session.md` in the current book directory
+- User views it with VS Code Markdown Preview (Ctrl+K V) + Markdown+Math extension
+- No need to open browser
+
+**Common rules for both modes:**
+- Structure: Current Topic → Key Formulas → Current Exercise / Reference Content
+- For incremental commands (/study, /exercise, /proof): append to session file
+- For full-document commands (/exam-prep, /study-guide, /mock-test, /compare, /translate): overwrite session file with new content
 
 ## File Structure
 ```

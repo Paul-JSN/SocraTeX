@@ -7,6 +7,9 @@ study_language: en
 show_original_terms: false
 term_format: "translated (original)"
 
+## Rendering
+render_mode: browser
+
 ## Study Preferences
 difficulty: adaptive
 hints_before_answer: 3
