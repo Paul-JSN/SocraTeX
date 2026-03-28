@@ -1,0 +1,21 @@
+[project]
+name = "socratex"
+version = "0.1.0"
+description = "Study any math textbook with Claude using Socratic method and LaTeX"
+readme = "README.md"
+license = "CC-BY-NC-ND-4.0"
+requires-python = ">=3.10"
+authors = [{ name = "Paul Jeon" }]
+keywords = ["math", "study", "claude", "socratic", "latex", "pdf"]
+
+dependencies = [
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+socratex-convert = "converter.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
