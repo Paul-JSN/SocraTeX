@@ -1,7 +1,8 @@
-# Socratex — Project Rules
+# SocraTeX — Project Rules
 
 ## What This Is
 A universal math textbook study system. PDF → Markdown → Claude studies with you using Socratic method.
+Works with any .md textbook files — the PDF converter is optional.
 
 ## Core Rules
 
@@ -35,7 +36,24 @@ A universal math textbook study system. PDF → Markdown → Claude studies with
 - `session.md` is rendered by VS Code Markdown Preview with KaTeX
 - Structure: Current Topic → Key Formulas → Current Exercise
 - Update `session.md` incrementally — append new content, don't overwrite the entire file
-- For CLI/Desktop fallback: generate `session.html` with KaTeX CDN when explicitly requested
+- ALWAYS also generate/update `session.html` alongside `session.md`
+- `session.html` includes KaTeX CDN for browser rendering — works on any platform
+- `session.html` template:
+  ```html
+  <!DOCTYPE html>
+  <html><head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="3">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <style>body{max-width:800px;margin:40px auto;padding:0 20px;font-family:Georgia,serif;line-height:1.8;font-size:18px}</style>
+  </head><body>
+  [CONTENT HERE — convert markdown to HTML, keep $...$ and $$...$$ for KaTeX]
+  <script>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}]});</script>
+  </body></html>
+  ```
+- The `<meta http-equiv="refresh" content="3">` auto-refreshes every 3 seconds
 
 ## File Structure
 ```
@@ -59,4 +77,8 @@ books/<textbook-name>/
 | `/review-test [file]` | Analyze review test, predict exam patterns |
 | `/translate [lang]` | Translate content preserving LaTeX |
 | `/progress` | View study progress |
+| `/proof [theorem/formula]` | Step-by-step proof verifier |
+| `/compare [A vs B]` | Side-by-side concept comparison |
+| `/visualize [concept]` | ASCII diagrams and visual intuition |
+| `/quiz [range]` | Quick 10-question quiz (T/F, fill-blank, match) |
 | `/settings [k=v]` | View/modify settings |

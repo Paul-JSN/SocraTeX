@@ -1,5 +1,5 @@
 ---
-description: Generate a structured study guide for exam preparation
+description: Generate a structured study guide — big picture overview, concept hierarchy, per-section summaries, printable formula sheet in LaTeX, optimal study order, and time estimates
 ---
 
 Read `socratex.config.md` for language and term settings.

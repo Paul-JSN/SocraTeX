@@ -1,5 +1,5 @@
 ---
-description: Analyze a review test to predict exam patterns and generate targeted prep
+description: Analyze a review test to predict real exam patterns — categorizes questions, maps to textbook sections, finds coverage gaps, predicts likely exam topics with confidence levels, generates targeted mock test and priority study plan
 ---
 
 Read `socratex.config.md` for language settings.

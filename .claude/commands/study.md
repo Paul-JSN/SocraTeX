@@ -1,5 +1,5 @@
 ---
-description: Start a Socratic study session on a chapter or section
+description: Start a Socratic study session — reads textbook chapter, guides you through definitions and theorems with questions (never direct answers), renders LaTeX to session.md for VS Code preview
 ---
 
 Read `socratex.config.md` for current language, term annotation, and difficulty settings. Apply these throughout.

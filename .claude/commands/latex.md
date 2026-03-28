@@ -1,5 +1,5 @@
 ---
-description: Toggle between LaTeX source and plain-language explanation
+description: Toggle between LaTeX source code and plain-language explanation — give it a formula to explain, say "source" to get copyable LaTeX, or describe math in words to convert to LaTeX notation
 ---
 
 Handle $ARGUMENTS in one of three modes:

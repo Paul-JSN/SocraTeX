@@ -1,5 +1,5 @@
 ---
-description: Track and display study progress across chapters
+description: Track study progress — shows chapters covered vs remaining, identifies weak areas from conversation history, recommends what to study or review next
 ---
 
 Read `socratex.config.md` for language settings.

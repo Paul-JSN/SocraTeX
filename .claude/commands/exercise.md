@@ -1,5 +1,5 @@
 ---
-description: Practice problems with Socratic guidance and incremental hints
+description: Practice problems from the textbook with step-by-step Socratic hints — tracks hint count, never reveals solution early, generates similar problems on request, updates session.md with LaTeX
 ---
 
 Read `socratex.config.md` for settings, especially `hints_before_answer` and `difficulty`.

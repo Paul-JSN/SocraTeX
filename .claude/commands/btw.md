@@ -1,5 +1,5 @@
 ---
-description: Ask a side question without disrupting the current study session
+description: Ask any side question without breaking study flow — spawns a sub-agent for isolated context, gives a concise answer, then resumes exactly where you left off
 ---
 
 This command provides context isolation. The side question must NOT affect the study flow.

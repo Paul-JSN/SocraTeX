@@ -1,5 +1,5 @@
 ---
-description: Generate comprehensive exam preparation materials for a chapter range
+description: Generate 6-part exam prep for a chapter range — formula cheat sheet, theorem summaries with proof sketches, must-do exercises, proof strategies, common mistakes, and concept relationship map, all in LaTeX
 ---
 
 Read `socratex.config.md` for language and term settings.

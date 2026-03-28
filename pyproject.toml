@@ -5,7 +5,7 @@ description = "Study any math textbook with Claude using Socratic method and LaT
 readme = "README.md"
 license = "CC-BY-NC-ND-4.0"
 requires-python = ">=3.10"
-authors = [{ name = "Paul Jeon" }]
+authors = [{ name = "Paul JS" }]
 keywords = ["math", "study", "claude", "socratic", "latex", "pdf"]
 
 dependencies = [

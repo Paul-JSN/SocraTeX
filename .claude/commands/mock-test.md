@@ -1,5 +1,5 @@
 ---
-description: Generate a mock exam based on textbook exercises and patterns
+description: Generate a timed mock exam matching textbook style — 30% easy / 50% medium / 20% hard, with point values, time estimates, and hidden solutions revealed on request
 ---
 
 Read `socratex.config.md` for language settings.
