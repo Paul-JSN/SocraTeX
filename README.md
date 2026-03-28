@@ -153,12 +153,14 @@ All study commands automatically update `session.md` so VS Code's Markdown Previ
 
 ## Skills-Only Mode (No Converter Needed)
 
-Already have `.md` files? Skip the PDF converter entirely:
+Already have `.md` files? Use **[SocraTeX Skills](https://github.com/Paul-JSN/SocraTeX-skills)** — the zero-dependency version with just the 15 slash commands. No Python. No API tokens. No build step.
 
 ```bash
-mkdir -p books/my-textbook
-# Place your .md files in books/my-textbook/
-# Create an index.md with links to each chapter
+git clone https://github.com/Paul-JSN/SocraTeX-skills.git
+cd SocraTeX-skills
+# Place your .md files in books/<textbook-name>/
+claude
+/study ch01
 ```
 
 The slash commands work with any Markdown files containing LaTeX notation. The MinerU converter is just one way to get those files.

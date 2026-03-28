@@ -88,6 +88,20 @@ claude
 
 ---
 
+## 仅技能模式 (无需转换器)
+
+已有 `.md` 文件？使用 **[SocraTeX Skills](https://github.com/Paul-JSN/SocraTeX-skills)** — 零依赖版本，仅包含 15 个斜杠命令。无需 Python。
+
+```bash
+git clone https://github.com/Paul-JSN/SocraTeX-skills.git
+cd SocraTeX-skills
+# 将 .md 文件放入 books/ 目录
+claude
+/study ch01
+```
+
+---
+
 ## 配置
 
 ```yaml

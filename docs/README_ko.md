@@ -114,6 +114,20 @@ VS Code Markdown Preview에서 `session.md` 열면 LaTeX 렌더링됨.
 
 ---
 
+## Skills-Only 모드 (변환기 없이 사용)
+
+이미 `.md` 파일이 있다면? **[SocraTeX Skills](https://github.com/Paul-JSN/SocraTeX-skills)** 를 사용하세요 — Python 없이 슬래시 커맨드만 포함된 제로 의존성 버전입니다.
+
+```bash
+git clone https://github.com/Paul-JSN/SocraTeX-skills.git
+cd SocraTeX-skills
+# .md 파일을 books/ 에 넣고 바로 시작
+claude
+/study ch01
+```
+
+---
+
 ## 설정
 
 `socratex.config.md`를 직접 수정하거나 `/settings` 사용:

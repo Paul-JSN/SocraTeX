@@ -88,6 +88,20 @@ claude
 
 ---
 
+## Modo Solo Skills (sin convertidor)
+
+Ya tienes archivos `.md`? Usa **[SocraTeX Skills](https://github.com/Paul-JSN/SocraTeX-skills)** — version sin dependencias con solo los 15 comandos slash. Sin Python.
+
+```bash
+git clone https://github.com/Paul-JSN/SocraTeX-skills.git
+cd SocraTeX-skills
+# Coloca tus archivos .md en books/
+claude
+/study ch01
+```
+
+---
+
 ## Configuracion
 
 ```yaml

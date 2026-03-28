@@ -88,6 +88,20 @@ claude
 
 ---
 
+## スキルのみモード (コンバーター不要)
+
+すでに `.md` ファイルがある場合は **[SocraTeX Skills](https://github.com/Paul-JSN/SocraTeX-skills)** をご利用ください — Python不要、15のスラッシュコマンドのみの軽量版です。
+
+```bash
+git clone https://github.com/Paul-JSN/SocraTeX-skills.git
+cd SocraTeX-skills
+# .md ファイルを books/ に配置
+claude
+/study ch01
+```
+
+---
+
 ## 設定
 
 ```yaml
