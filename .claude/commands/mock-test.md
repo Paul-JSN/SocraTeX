@@ -1,5 +1,6 @@
 ---
-description: Generate a timed mock exam matching textbook style — 30% easy / 50% medium / 20% hard, with point values, time estimates, and hidden solutions revealed on request
+name: socratex-mock-test
+description: Use when the user wants a practice exam with difficulty distribution, point values, time estimates, and hidden solutions
 ---
 
 Read `socratex.config.md` for language settings.

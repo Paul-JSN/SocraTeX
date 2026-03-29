@@ -1,5 +1,6 @@
 ---
-description: Visualize a math concept using ASCII diagrams, set relationships, function behavior sketches, or structured representations — helps build geometric intuition
+name: socratex-visualize
+description: Use when the user wants ASCII diagrams or visual representations of math concepts like epsilon-delta, set relationships, or function behavior
 ---
 
 Read `socratex.config.md` for language settings.

@@ -1,5 +1,6 @@
 ---
-description: Start a Socratic study session — reads textbook chapter, guides you through definitions and theorems with questions (never direct answers), renders LaTeX to session.md for VS Code preview
+name: socratex-study
+description: Use when the user wants to study a math textbook chapter or section using Socratic dialogue with LaTeX-rendered definitions and theorems
 ---
 
 Read `socratex.config.md` for current language, term annotation, and difficulty settings. Apply these throughout.

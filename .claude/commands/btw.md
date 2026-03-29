@@ -1,5 +1,6 @@
 ---
-description: Ask any side question without breaking study flow — spawns a sub-agent for isolated context, gives a concise answer, then resumes exactly where you left off
+name: socratex-btw
+description: Use when the user asks a side question unrelated to the current study topic and needs an isolated answer without disrupting flow
 ---
 
 This command provides context isolation. The side question must NOT affect the study flow.

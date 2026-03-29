@@ -1,5 +1,6 @@
 ---
-description: Step-by-step proof and derivation verifier — write your proof line by line, Claude checks each step's logical validity, asks why each conclusion follows, works for theorems, formulas, and identities
+name: socratex-proof
+description: Use when the user wants to write and verify a proof or derivation step by step, with logical validation at each line
 ---
 
 Read `socratex.config.md` for language and term settings.

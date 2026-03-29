@@ -1,5 +1,6 @@
 ---
-description: Generate 6-part exam prep for a chapter range — formula cheat sheet, theorem summaries with proof sketches, must-do exercises, proof strategies, common mistakes, and concept relationship map, all in LaTeX
+name: socratex-exam-prep
+description: Use when the user needs comprehensive exam preparation materials for a chapter range — formulas, theorems, exercises, proof strategies, common mistakes
 ---
 
 Read `socratex.config.md` for language and term settings.

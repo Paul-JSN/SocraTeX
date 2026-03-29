@@ -1,5 +1,6 @@
 ---
-description: Generate a structured study guide — big picture overview, concept hierarchy, per-section summaries, printable formula sheet in LaTeX, optimal study order, and time estimates
+name: socratex-study-guide
+description: Use when the user needs a structured overview of chapters — concept hierarchy, summaries, formula sheet, study order, and time estimates
 ---
 
 Read `socratex.config.md` for language and term settings.

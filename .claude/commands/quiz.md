@@ -1,5 +1,6 @@
 ---
-description: Quick quiz mode — rapid-fire True/False, fill-in-the-blank, and definition matching. Lighter and faster than /mock-test, great for spaced repetition and review
+name: socratex-quiz
+description: Use when the user wants a quick 10-question quiz for rapid review — True/False, fill-in-the-blank, definition matching
 ---
 
 Read `socratex.config.md` for language, difficulty, and term settings.

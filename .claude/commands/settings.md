@@ -1,5 +1,6 @@
 ---
-description: View or change SocraTeX settings — language, term annotation on/off, display format, difficulty level, hint count. Edits socratex.config.md directly
+name: socratex-settings
+description: Use when the user wants to view or change SocraTeX settings — language, term annotation, difficulty, hints, render mode
 ---
 
 Read `socratex.config.md`.

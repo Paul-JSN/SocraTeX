@@ -1,5 +1,6 @@
 ---
-description: Translate study content to any language while keeping all LaTeX math intact — applies configurable term annotation format (e.g. "수렴 (convergence)"), supports all ISO 639-1 languages
+name: socratex-translate
+description: Use when the user wants study content translated to another language while preserving all LaTeX math and term annotation settings
 ---
 
 Read `socratex.config.md` for `study_language`, `show_original_terms`, and `term_format`.

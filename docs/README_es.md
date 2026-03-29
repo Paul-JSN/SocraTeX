@@ -6,7 +6,7 @@
 
 **Estudia cualquier libro de matematicas con Claude.**
 
-Introduce un PDF → Convierte a Markdown → Comienza un dialogo socratico.
+Solo necesitas archivos `.md`. Dialogo socratico con todas las formulas en LaTeX.
 
 ---
 
@@ -18,14 +18,11 @@ Introduce un PDF → Convierte a Markdown → Comienza un dialogo socratico.
 
 ## Que es SocraTeX?
 
-Un sistema que convierte cualquier libro de texto de matematicas en una experiencia de estudio interactiva con Claude.
+15 comandos slash que convierten a Claude en un tutor matematico socratico. Sin instalacion, sin dependencias — solo archivos Markdown.
 
-```
-PDF  ──>  MinerU API  ──>  .md estructurado  ──>  Claude te ensena
-                                                    (metodo socratico)
-```
+**No da respuestas directas.** Te guia con preguntas, pistas y contraejemplos hasta que descubras la solucion.
 
-**No da respuestas directas.** Te guia con preguntas, pistas y contraejemplos hasta que descubras la solucion. Todas las formulas en LaTeX.
+> **Tienes un PDF?** Usa [MinerU](https://mineru.net) (modo Precision, modelo `vlm`) para convertir a Markdown. Gratis.
 
 ---
 
@@ -39,6 +36,10 @@ PDF  ──>  MinerU API  ──>  .md estructurado  ──>  Claude te ensena
 | `/mock-test [rango]` | Examen simulado — distribucion de dificultad 30/50/20, con puntajes y tiempo |
 | `/study-guide [rango]` | Guia de estudio — jerarquia de conceptos, resumenes, hoja de formulas, orden de estudio |
 | `/review-test [archivo]` | Analisis de repaso — predice patrones del examen, encuentra brechas, genera practica dirigida |
+| `/proof [teorema]` | Modo prueba — escribe tu prueba linea por linea, Claude verifica la logica |
+| `/compare [A vs B]` | Comparacion — definiciones, diferencias, similitudes, contraejemplos |
+| `/visualize [concepto]` | Visualizacion ASCII — graficas, diagramas de conjuntos, epsilon-delta |
+| `/quiz [rango]` | Quiz rapido 10 preguntas — V/F, completar, emparejar definiciones |
 | `/latex [expr]` | Alternar LaTeX — explicar formula, copiar codigo fuente, convertir texto a LaTeX |
 | `/translate [idioma]` | Traducir — preserva LaTeX, soporte bilingue configurable |
 | `/btw [pregunta]` | Pregunta lateral — respuesta aislada via sub-agente, retoma el estudio automaticamente |
@@ -49,54 +50,18 @@ PDF  ──>  MinerU API  ──>  .md estructurado  ──>  Claude te ensena
 
 ## Inicio Rapido
 
-### 1. Clonar & Instalar
-
 ```bash
 git clone https://github.com/Paul-JSN/SocraTeX.git
 cd SocraTeX
-pip install -r requirements.txt
+mkdir -p books/my-textbook
+# Coloca tus archivos .md en books/my-textbook/
 ```
 
-### 2. Configurar Token de MinerU API
-
-Obtener token en [mineru.net/apiManage](https://mineru.net/apiManage):
+> **Convertir PDF?** Recomendamos [MinerU](https://mineru.net) — gratis, preserva LaTeX.
 
 ```bash
-cp .env.example .env
-# Editar .env y agregar MINERU_API_TOKEN
-```
-
-### 3. Convertir Libro de Texto
-
-```bash
-python -m converter libro.pdf
-```
-
-### 4. Empezar a Estudiar
-
-**Claude Code (VS Code):**
-```bash
-cd SocraTeX
 claude
 /settings lang=es
-/study ch01
-```
-
-**Claude.ai:**
-1. Crear proyecto → subir archivos `.md` → pegar `system-prompt.md`
-2. Escribir: "Estudiemos el capitulo 3"
-
----
-
-## Modo Solo Skills (sin convertidor)
-
-Ya tienes archivos `.md`? Usa **[SocraTeX Skills](https://github.com/Paul-JSN/SocraTeX-skills)** — version sin dependencias con solo los 15 comandos slash. Sin Python.
-
-```bash
-git clone https://github.com/Paul-JSN/SocraTeX-skills.git
-cd SocraTeX-skills
-# Coloca tus archivos .md en books/
-claude
 /study ch01
 ```
 
@@ -108,6 +73,7 @@ claude
 study_language: es
 show_original_terms: true      # convergencia (convergence)
 term_format: "translated (original)"
+render_mode: desktop
 difficulty: adaptive
 hints_before_answer: 3
 ```
@@ -117,4 +83,3 @@ hints_before_answer: 3
 ## Licencia
 
 **CC BY-NC-ND 4.0** — Uso libre. Sin uso comercial. Sin derivados.
-

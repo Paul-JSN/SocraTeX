@@ -1,5 +1,6 @@
 ---
-description: Practice problems from the textbook with step-by-step Socratic hints — tracks hint count, never reveals solution early, generates similar problems on request, updates session.md with LaTeX
+name: socratex-exercise
+description: Use when the user wants to practice math problems with guided hints, tracking attempts before revealing solutions
 ---
 
 Read `socratex.config.md` for settings, especially `hints_before_answer` and `difficulty`.

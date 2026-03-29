@@ -1,5 +1,6 @@
 ---
-description: Analyze a review test to predict real exam patterns — categorizes questions, maps to textbook sections, finds coverage gaps, predicts likely exam topics with confidence levels, generates targeted mock test and priority study plan
+name: socratex-review-test
+description: Use when the user has a review test to analyze for predicting exam patterns, finding coverage gaps, and generating targeted practice
 ---
 
 Read `socratex.config.md` for language settings.

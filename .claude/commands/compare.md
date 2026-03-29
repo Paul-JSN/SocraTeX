@@ -1,5 +1,6 @@
 ---
-description: Compare two math concepts side by side — differences, similarities, counterexamples, and when to use which. Works for definitions, theorems, techniques, and structures
+name: socratex-compare
+description: Use when the user wants to compare two mathematical concepts side by side — definitions, differences, counterexamples, when to use which
 ---
 
 Read `socratex.config.md` for language and term settings.

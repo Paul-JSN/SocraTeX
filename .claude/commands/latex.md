@@ -1,5 +1,6 @@
 ---
-description: Toggle between LaTeX source code and plain-language explanation — give it a formula to explain, say "source" to get copyable LaTeX, or describe math in words to convert to LaTeX notation
+name: socratex-latex
+description: Use when the user wants to toggle between LaTeX source code and plain-language explanation, or convert text to LaTeX notation
 ---
 
 Handle $ARGUMENTS in one of three modes:
