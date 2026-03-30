@@ -1,5 +1,5 @@
 ---
-name: socratex-latex
+name: latex
 description: Use when the user wants to toggle between LaTeX source code and plain-language explanation, or convert text to LaTeX notation
 ---
 

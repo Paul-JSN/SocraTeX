@@ -1,9 +1,9 @@
 ---
-name: socratex-visualize
+name: visualize
 description: Use when the user wants ASCII diagrams or visual representations of math concepts like epsilon-delta, set relationships, or function behavior
 ---
 
-Read `socratex.config.md` for language settings.
+If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop.
 
 Parse $ARGUMENTS to identify what to visualize (e.g., "epsilon-delta", "open cover", "sequence convergence", "function continuity at a point").
 
@@ -45,4 +45,4 @@ After the visualization:
 2. Connect it to the formal definition in LaTeX
 3. Ask: "Does this match your intuition? What would happen if we changed [parameter]?"
 
-Write visualization + explanation to `session.md` and `session.html`.
+Write visualization + explanation to `session.md` and `session.html` in the working directory.

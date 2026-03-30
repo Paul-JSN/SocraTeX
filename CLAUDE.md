@@ -38,8 +38,8 @@ Works with any .md textbook files — the PDF converter is optional.
 
 Do NOT dump reference content only into chat — the student would have to scroll up. Write it to the session file so it stays visible in a side panel (VS Code preview or browser).
 
-| Command | Chat output | Session file output |
-|---------|------------|-------------------|
+| Skill | Chat output | Session file output |
+|-------|------------|-------------------|
 | `/study` | Socratic questions, feedback | Definitions, key formulas, current topic |
 | `/exercise` | Hints, step guidance, feedback | Problem statement, formulas used |
 | `/proof` | Step-by-step dialogue, validation | Final completed proof |
@@ -87,21 +87,22 @@ Check `render_mode` in `socratex.config.md` to decide output behavior:
 
 **Common rules for both modes:**
 - Structure: Current Topic → Key Formulas → Current Exercise / Reference Content
-- For incremental commands (/study, /exercise, /proof): append to session file
-- For full-document commands (/exam-prep, /study-guide, /mock-test, /compare, /translate): overwrite session file with new content
+- For incremental skills (/study, /exercise, /proof): append to session file
+- For full-document skills (/exam-prep, /study-guide, /mock-test, /compare, /translate): overwrite session file with new content
 
 ## File Structure
+Textbook files can be anywhere — in the working directory, subdirectories, or provided in chat. A common layout:
 ```
-books/<textbook-name>/
-├── index.md          # Table of contents
+<any-directory>/
+├── index.md          # Table of contents (optional)
 ├── ch01-*.md         # Chapter files (source material)
 ├── session.md        # Live study session (auto-updated)
 └── session.html      # Browser rendering (KaTeX, auto-refresh)
 ```
 
-## Slash Commands Reference
-| Command | Purpose |
-|---------|---------|
+## Skills Reference
+| Skill | Purpose |
+|-------|---------|
 | `/study [ch/section]` | Start Socratic study session |
 | `/exercise [topic]` | Practice problems with guided hints |
 | `/latex [expr]` | Toggle LaTeX source ↔ explanation |

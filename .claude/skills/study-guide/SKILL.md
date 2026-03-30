@@ -1,11 +1,11 @@
 ---
-name: socratex-study-guide
+name: study-guide
 description: Use when the user needs a structured overview of chapters — concept hierarchy, summaries, formula sheet, study order, and time estimates
 ---
 
-Read `socratex.config.md` for language and term settings.
+If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop.
 
-Parse $ARGUMENTS as a chapter range. Read all .md files in that range from `books/`.
+Parse $ARGUMENTS as a chapter range. Find textbook .md files — check `textbook_path` from config first, then `books/`, then the working directory, or use files provided in the conversation. Read all .md files in that range.
 
 Generate a structured study guide:
 
@@ -27,4 +27,4 @@ Optimal sequence if topics have prerequisites. Flag which sections are most exam
 **6. Estimated Study Time**
 Per-section time estimates based on concept density and difficulty.
 
-Write the complete guide to `session.md` in the book directory (overwrite). Apply language/term settings.
+Write the complete guide to `session.md` in the working directory (overwrite). Apply language/term settings.

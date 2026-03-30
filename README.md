@@ -22,7 +22,7 @@ Drop your `.md` files and start a Socratic dialogue. All math in LaTeX.
 
 ## What is SocraTeX?
 
-15 slash commands that turn Claude into a Socratic math tutor. No setup, no dependencies — just Markdown files with LaTeX.
+15 skills that turn Claude into a Socratic math tutor. No setup, no dependencies — just Markdown files with LaTeX.
 
 ```
 Your .md textbook  ──>  Claude reads it  ──>  Socratic dialogue
@@ -37,8 +37,8 @@ Your .md textbook  ──>  Claude reads it  ──>  Socratic dialogue
 
 ## Features
 
-| Command | What it does |
-|---------|-------------|
+| Skill | What it does |
+|-------|-------------|
 | `/study [chapter]` | Socratic walkthrough — reads the chapter, asks guiding questions, never gives answers directly |
 | `/exercise [topic]` | Guided practice — incremental hints, tracks attempts, generates similar problems |
 | `/exam-prep [range]` | Full exam prep — formula cheat sheet, theorem summaries, must-do exercises, proof strategies, common mistakes, concept map |
@@ -111,7 +111,7 @@ Open `session.md` in VS Code Markdown Preview for rendered LaTeX.
 ./install.ps1       # Windows (PowerShell)
 ```
 
-Use `/socratex:study`, `/socratex:exercise`, etc. from any project.
+Use `/socratex-study`, `/socratex-exercise`, etc. from any project.
 
 ---
 
@@ -156,6 +156,7 @@ Edit `socratex.config.md` directly or use `/settings`:
 study_language: en            # Any ISO 639-1 code (en, ko, ja, zh, es, fr, de, ...)
 show_original_terms: false    # Show original terms alongside translations
 term_format: "translated (original)"   # Options: "translated (original)" | "original → translated" | "translated [original]"
+textbook_path:                # Path to textbook .md files (optional — auto-detected if empty)
 render_mode: desktop          # desktop (browser) | vscode (Markdown Preview)
 difficulty: adaptive          # easy | medium | hard | adaptive
 hints_before_answer: 3        # Minimum hints before revealing solutions
@@ -166,6 +167,7 @@ hints_before_answer: 3        # Minimum hints before revealing solutions
 /settings lang=ko terms=on              →  수렴 (convergence)
 /settings lang=ja terms=on              →  収束 (convergence)
 /settings format="original → translated" →  convergence → 수렴
+/settings path=~/Documents/real-analysis
 /settings difficulty=hard hints=5
 ```
 
@@ -173,16 +175,16 @@ hints_before_answer: 3        # Minimum hints before revealing solutions
 
 ## Works With Any AI
 
-SocraTeX commands are Claude Code native, but the system works with any AI:
+SocraTeX skills are Claude Code native, but the system works with any AI:
 
 | Provider | How to use |
 |----------|-----------|
 | **Claude Code** | Automatic — `/study`, `/exercise`, etc. just work |
 | **Claude.ai** | Paste `claude-ai/system-prompt.md` into Custom Instructions |
-| **Codex / OpenClaw** | Load `CLAUDE.md` + relevant command `.md` files as system context |
-| **Gemini / GPT / Others** | Same — use `CLAUDE.md` as system prompt, load commands as needed |
+| **Codex / OpenClaw** | Load `CLAUDE.md` + relevant skill `.md` files as system context |
+| **Gemini / GPT / Others** | Same — use `CLAUDE.md` as system prompt, load skills as needed |
 
-The command files in `.claude/commands/` are plain Markdown instructions. Any AI that can read text can follow them.
+The skill files in `.claude/skills/` are plain Markdown instructions. Any AI that can read text can follow them.
 
 ---
 
@@ -190,7 +192,7 @@ The command files in `.claude/commands/` are plain Markdown instructions. Any AI
 
 ```
 SocraTeX/
-├── .claude/commands/    # 15 slash commands (skill format)
+├── .claude/skills/      # 15 skills (SKILL.md format)
 ├── claude-ai/           # System prompt for Claude.ai
 ├── CLAUDE.md            # Rules for Claude (Socratic method, LaTeX, etc.)
 ├── socratex.config.md   # User settings

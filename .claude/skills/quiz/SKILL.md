@@ -1,9 +1,9 @@
 ---
-name: socratex-quiz
+name: quiz
 description: Use when the user wants a quick 10-question quiz for rapid review — True/False, fill-in-the-blank, definition matching
 ---
 
-Read `socratex.config.md` for language, difficulty, and term settings.
+If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop.
 
 Parse $ARGUMENTS as a topic or chapter range. If empty, quiz on all studied material.
 

@@ -1,11 +1,11 @@
 ---
-name: socratex-exam-prep
+name: exam-prep
 description: Use when the user needs comprehensive exam preparation materials for a chapter range — formulas, theorems, exercises, proof strategies, common mistakes
 ---
 
-Read `socratex.config.md` for language and term settings.
+If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop.
 
-Parse $ARGUMENTS as a chapter/section range (e.g., "ch1-ch5", "chapters 1 to 3", "sections 3.1-3.4"). Read all .md files in that range from `books/`.
+Parse $ARGUMENTS as a chapter/section range (e.g., "ch1-ch5", "chapters 1 to 3", "sections 3.1-3.4"). Find textbook .md files — check `textbook_path` from config first, then `books/`, then the working directory, or use files provided in the conversation. Read all .md files in that range.
 
 Generate these 6 categories, ALL with LaTeX math:
 
@@ -27,4 +27,4 @@ Pitfalls students frequently hit. "Do NOT confuse X with Y" format.
 **6. Concept Map**
 Text-based relationship diagram: definitions → theorems → applications → connections.
 
-Write the complete output to `session.md` in the book directory (overwrite — this is a reference document, not incremental). Apply language/term settings throughout.
+Write the complete output to `session.md` in the working directory (overwrite — this is a reference document, not incremental). Apply language/term settings throughout.

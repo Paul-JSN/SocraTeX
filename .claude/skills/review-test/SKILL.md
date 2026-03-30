@@ -1,9 +1,9 @@
 ---
-name: socratex-review-test
+name: review-test
 description: Use when the user has a review test to analyze for predicting exam patterns, finding coverage gaps, and generating targeted practice
 ---
 
-Read `socratex.config.md` for language settings.
+If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop.
 
 $ARGUMENTS should be a file path to a review test, or the student can paste the review test content directly.
 
@@ -23,4 +23,4 @@ If a file path is given, read that file. Otherwise, use the pasted content.
 
 6. **Priority Study Plan** — Ordered list of what to study first, based on prediction confidence and the student's likely weak spots.
 
-Write the full analysis to `session.md` (overwrite). All math in LaTeX.
+Write the full analysis to `session.md` in the working directory (overwrite). All math in LaTeX.

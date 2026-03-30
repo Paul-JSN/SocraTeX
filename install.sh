@@ -2,23 +2,27 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SOURCE="$SCRIPT_DIR/.claude/commands"
-TARGET="$HOME/.claude/commands/socratex"
+SOURCE="$SCRIPT_DIR/.claude/skills"
+TARGET="$HOME/.claude/skills"
 
 if [ ! -d "$SOURCE" ]; then
-    echo "Error: commands directory not found at $SOURCE"
+    echo "Error: skills directory not found at $SOURCE"
     exit 1
 fi
 
-mkdir -p "$TARGET"
-cp "$SOURCE"/*.md "$TARGET/"
+for skill_dir in "$SOURCE"/*/; do
+    name=$(basename "$skill_dir")
+    dest="$TARGET/socratex-$name"
+    mkdir -p "$dest"
+    cp "$skill_dir"SKILL.md "$dest/"
+done
 
-echo "Socratex commands installed to $TARGET"
+echo "SocraTeX skills installed to $TARGET"
 echo ""
-echo "Available commands:"
-for f in "$TARGET"/*.md; do
-    name=$(basename "$f" .md)
-    echo "  /socratex:$name"
+echo "Available skills:"
+for skill_dir in "$TARGET"/socratex-*/; do
+    name=$(basename "$skill_dir" | sed 's/^socratex-//')
+    echo "  /socratex-$name"
 done
 echo ""
-echo "Or use them without prefix when inside the socratex project directory."
+echo "Or use them without prefix when inside the SocraTeX project directory."

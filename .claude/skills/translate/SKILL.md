@@ -1,9 +1,9 @@
 ---
-name: socratex-translate
+name: translate
 description: Use when the user wants study content translated to another language while preserving all LaTeX math and term annotation settings
 ---
 
-Read `socratex.config.md` for `study_language`, `show_original_terms`, and `term_format`.
+If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop.
 
 If $ARGUMENTS specifies a language (e.g., "ko", "ja", "zh", "es"), use that language for this translation. Otherwise, use `study_language` from config.
 
@@ -17,4 +17,4 @@ Translate the most recent study content (the last topic, exercise, or explanatio
 - Preserve the structure and formatting of the original content
 - Keep theorem/definition labels in their original form (e.g., "Theorem 3.1.1")
 
-Update `session.md` with the translated version. Append — do not overwrite the original.
+Update `session.md` in the working directory with the translated version. Append — do not overwrite the original.

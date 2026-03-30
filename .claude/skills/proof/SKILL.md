@@ -1,9 +1,9 @@
 ---
-name: socratex-proof
+name: proof
 description: Use when the user wants to write and verify a proof or derivation step by step, with logical validation at each line
 ---
 
-Read `socratex.config.md` for language and term settings.
+If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop.
 
 Parse $ARGUMENTS to identify what to prove or derive. This can be:
 - A theorem name/number (e.g., "Theorem 3.1.1", "Bolzano-Weierstrass")
@@ -22,4 +22,4 @@ Then enter **proof mode**:
 4. If the student is stuck, offer a strategic hint — not the next step, but the TECHNIQUE to use (induction, contradiction, epsilon-delta, etc.)
 5. When the proof is complete, summarize the full proof cleanly with all steps in LaTeX.
 
-Update `session.md` with the theorem statement and completed proof. Also update `session.html` if it exists.
+Update `session.md` in the working directory with the theorem statement and completed proof. Also update `session.html` if it exists.

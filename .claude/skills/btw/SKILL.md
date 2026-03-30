@@ -1,9 +1,9 @@
 ---
-name: socratex-btw
+name: btw
 description: Use when the user asks a side question unrelated to the current study topic and needs an isolated answer without disrupting flow
 ---
 
-This command provides context isolation. The side question must NOT affect the study flow.
+This skill provides context isolation. The side question must NOT affect the study flow.
 
 Use the Agent tool to spawn a sub-agent that answers $ARGUMENTS independently. The sub-agent should:
 - Give a concise answer (3-5 sentences max)

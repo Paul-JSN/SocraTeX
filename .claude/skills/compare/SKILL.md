@@ -1,9 +1,9 @@
 ---
-name: socratex-compare
+name: compare
 description: Use when the user wants to compare two mathematical concepts side by side — definitions, differences, counterexamples, when to use which
 ---
 
-Read `socratex.config.md` for language and term settings.
+If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop.
 
 Parse $ARGUMENTS to identify the two concepts to compare (e.g., "uniform vs pointwise convergence", "open vs closed sets", "Riemann vs Lebesgue integral").
 
@@ -27,4 +27,4 @@ Practical guidance: in which contexts does each concept appear? When does the di
 **6. Common Confusion Points**
 What students typically mix up between the two, and how to keep them straight.
 
-Write the full comparison to `session.md` and `session.html`. Apply language/term settings.
+Write the full comparison to `session.md` and `session.html` in the working directory. Apply language/term settings.

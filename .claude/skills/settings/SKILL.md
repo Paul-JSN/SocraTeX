@@ -1,9 +1,9 @@
 ---
-name: socratex-settings
+name: settings
 description: Use when the user wants to view or change SocraTeX settings — language, term annotation, difficulty, hints, render mode
 ---
 
-Read `socratex.config.md`.
+If `socratex.config.md` does not exist, create it with defaults (study_language: en, show_original_terms: false, difficulty: adaptive, hints_before_answer: 3, render_mode: desktop) before proceeding. Then read `socratex.config.md`.
 
 If $ARGUMENTS is empty, display all current settings in a clean table format. Stop here.
 
@@ -11,6 +11,7 @@ Otherwise, parse $ARGUMENTS as key=value pairs. Supported keys:
 - `lang` → updates `study_language` (ISO 639-1 code: en, ko, ja, zh, es, fr, de, etc.)
 - `terms` → updates `show_original_terms` (on/off → true/false)
 - `format` → updates `term_format` (quoted string)
+- `path` → updates `textbook_path` (directory path to textbook .md files)
 - `difficulty` → updates `difficulty` (easy, medium, hard, adaptive)
 - `hints` → updates `hints_before_answer` (integer)
 - `render` → updates `render_mode` (desktop or vscode)
