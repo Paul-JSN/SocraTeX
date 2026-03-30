@@ -1,0 +1,21 @@
+{
+  "name": "socratex",
+  "description": "Socratic math tutor — turns any markdown textbook into an interactive study system with guided questioning, exercises, exam prep, mock tests, and LaTeX rendering",
+  "version": "1.0.0",
+  "author": {
+    "name": "Paul-JSN"
+  },
+  "homepage": "https://github.com/Paul-JSN/SocraTeX",
+  "repository": "https://github.com/Paul-JSN/SocraTeX",
+  "license": "MIT",
+  "keywords": [
+    "math",
+    "tutor",
+    "socratic-method",
+    "textbook",
+    "study",
+    "latex",
+    "exam-prep",
+    "education"
+  ]
+}

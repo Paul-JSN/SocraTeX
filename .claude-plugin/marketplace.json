@@ -1,0 +1,18 @@
+{
+  "name": "socratex",
+  "description": "Socratic math tutor plugin — interactive textbook study with guided questioning",
+  "owner": {
+    "name": "Paul-JSN"
+  },
+  "plugins": [
+    {
+      "name": "socratex",
+      "description": "Socratic math tutor — turns any markdown textbook into an interactive study system with guided questioning, exercises, exam prep, mock tests, and LaTeX rendering",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "Paul-JSN"
+      }
+    }
+  ]
+}

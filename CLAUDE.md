@@ -24,6 +24,18 @@ Works with any .md textbook files — the PDF converter is optional.
 - Do not invent theorems, definitions, or proofs not in the source material
 - When extending beyond the textbook, explicitly state: "This is not in your textbook, but..."
 
+### Subject Detection
+- When reading a textbook file, detect the subject from its content (terminology, notation, topic structure)
+- Use `subject` from `socratex.config.md` only if set to a specific value (not `auto`) or if detection is ambiguous
+- Adapt behavior to the detected subject:
+  - **Math**: formal proofs, epsilon-delta, theorem-definition-proof structure
+  - **Physics**: derivations, units, dimensional analysis, physical intuition
+  - **Chemistry**: reaction equations, equilibria, molecular notation
+  - **Statistics**: distributions, hypothesis testing, confidence intervals
+  - **Economics**: optimization, equilibrium models, marginal analysis
+  - **Engineering**: system modeling, transfer functions, circuit analysis
+- When subject is unclear, ask the student: "What subject is this for?"
+
 ### Language & Terms
 - Read `socratex.config.md` at the start of every study session
 - Use the configured `study_language` for all responses
@@ -42,7 +54,6 @@ Do NOT dump reference content only into chat — the student would have to scrol
 |-------|------------|-------------------|
 | `/study` | Socratic questions, feedback | Definitions, key formulas, current topic |
 | `/exercise` | Hints, step guidance, feedback | Problem statement, formulas used |
-| `/proof` | Step-by-step dialogue, validation | Final completed proof |
 | `/exam-prep` | Brief "here's your prep" | FULL 6-part content (formulas, theorems, etc.) |
 | `/mock-test` | Instructions, scoring | Full test + solutions |
 | `/study-guide` | Brief summary | FULL structured guide |
@@ -55,6 +66,15 @@ Do NOT dump reference content only into chat — the student would have to scrol
 | `/btw` | Answer + resume in chat only | — |
 | `/progress` | Progress summary in chat | — |
 | `/settings` | Confirmation in chat | — |
+| `/flashcard` | Brief confirmation | FULL flashcard set (Q&A pairs) |
+| `/derive` | Step-by-step Socratic dialogue | Final completed derivation |
+| `/whatif` | Interactive what-if exploration (isolated) | — |
+| `/feynman` | Student explains, Claude probes | — |
+| `/summary` | Brief "here's your summary" | FULL concise summary |
+| `/relate` | Brief "here are the connections" | FULL cross-discipline map |
+| `/mistake` | Brief overview | FULL gap analysis + mistake patterns + practice plan |
+| `/prereq` | Interactive readiness check in chat | — |
+| `/solve` | Brief intro | FULL worked solution with reasoning |
 
 ### Session File (Rendering)
 
@@ -87,8 +107,8 @@ Check `render_mode` in `socratex.config.md` to decide output behavior:
 
 **Common rules for both modes:**
 - Structure: Current Topic → Key Formulas → Current Exercise / Reference Content
-- For incremental skills (/study, /exercise, /proof): append to session file
-- For full-document skills (/exam-prep, /study-guide, /mock-test, /compare, /translate): overwrite session file with new content
+- For incremental skills (/study, /exercise, /derive): append to session file
+- For full-document skills (/exam-prep, /study-guide, /mock-test, /compare, /translate, /flashcard, /summary, /relate, /mistake, /solve): overwrite session file with new content
 
 ## File Structure
 Textbook files can be anywhere — in the working directory, subdirectories, or provided in chat. A common layout:
@@ -109,12 +129,20 @@ Textbook files can be anywhere — in the working directory, subdirectories, or 
 | `/btw [question]` | Out-of-context question (sub-agent) |
 | `/exam-prep [range]` | Generate exam prep materials |
 | `/mock-test [range]` | Generate mock exam |
-| `/study-guide [range]` | Generate structured study guide |
+| `/study-guide [range] [exam date]` | Study plan + schedule (with exam date: day-by-day plan) |
 | `/review-test [file]` | Analyze review test, predict exam patterns |
 | `/translate [lang]` | Translate content preserving LaTeX |
 | `/progress` | View study progress |
-| `/proof [theorem/formula]` | Step-by-step proof verifier |
 | `/compare [A vs B]` | Side-by-side concept comparison |
 | `/visualize [concept]` | ASCII diagrams and visual intuition |
 | `/quiz [range]` | Quick 10-question quiz (T/F, fill-blank, match) |
 | `/settings [k=v]` | View/modify settings |
+| `/flashcard [topic/range]` | Generate Q&A flashcards, Anki export |
+| `/derive [formula/law]` | Step-by-step formula/law derivation |
+| `/whatif [scenario]` | What-if exploration (isolated, numerical + conceptual) |
+| `/feynman [concept]` | Student explains concept to Claude (Feynman technique) |
+| `/summary [range]` | Concise summary of studied content |
+| `/relate [concept]` | Cross-discipline concept connections |
+| `/mistake [topic]` | Analyze student's actual mistake patterns + gap analysis |
+| `/prereq [topic]` | Check prerequisite knowledge, test readiness |
+| `/solve [problem]` | Full worked solution (Claude demonstrates) |

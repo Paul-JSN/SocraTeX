@@ -7,6 +7,9 @@ study_language: en
 show_original_terms: false
 term_format: "translated (original)"
 
+## Subject
+subject: auto
+
 ## Rendering
 render_mode: desktop
 
