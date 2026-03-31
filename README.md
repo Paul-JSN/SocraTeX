@@ -4,15 +4,16 @@
 
 ### Socratic + LaTeX
 
-**Study any math textbook with Claude.**
+**Your AI study partner for any STEM textbook.**
 
-Drop your `.md` files and start a Socratic dialogue. All math in LaTeX.
+Drop your `.md` files — start a Socratic dialogue. Never get direct answers. All math in LaTeX.
 
 ---
 
 <img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue" alt="License" />
 <img src="https://img.shields.io/badge/setup-zero--dependency-brightgreen" alt="Zero Dependency" />
-<img src="https://img.shields.io/badge/platform-Claude_Code_%7C_Claude.ai-blueviolet" alt="Platform" />
+<img src="https://img.shields.io/badge/skills-24-orange" alt="24 Skills" />
+<img src="https://img.shields.io/badge/subjects-math_%7C_physics_%7C_chemistry_%7C_stats_%7C_engineering_%7C_economics-blueviolet" alt="Subjects" />
 
 [한국어](docs/README_ko.md) | [中文](docs/README_zh.md) | [日本語](docs/README_ja.md) | [Espanol](docs/README_es.md)
 
@@ -22,96 +23,101 @@ Drop your `.md` files and start a Socratic dialogue. All math in LaTeX.
 
 ## What is SocraTeX?
 
-15 skills that turn Claude into a Socratic math tutor. No setup, no dependencies — just Markdown files with LaTeX.
+24 skills that turn Claude into a Socratic STEM tutor. No setup, no dependencies — just Markdown textbooks with LaTeX.
 
 ```
-Your .md textbook  ──>  Claude reads it  ──>  Socratic dialogue
-                                               (never gives direct answers)
+Your .md textbook  ──>  Claude reads it  ──>  Detects subject  ──>  Socratic dialogue
+                                                                     (never gives direct answers)
 ```
 
-**No direct answers.** Claude guides you with questions, hints, and counterexamples until you discover the solution yourself. All math is rendered in beautiful LaTeX.
+**No direct answers.** Claude guides you with questions, hints, and counterexamples until you discover the solution yourself.
+
+**Any STEM subject.** SocraTeX auto-detects whether you're studying math, physics, chemistry, statistics, engineering, or economics — and adapts its teaching style accordingly.
 
 > **Have a PDF?** Use [MinerU](https://mineru.net) (Precision mode, `vlm` model) to convert PDF to Markdown with LaTeX preserved. Free tier available.
 
 ---
 
-## Features
-
-| Skill | What it does |
-|-------|-------------|
-| `/study [chapter]` | Socratic walkthrough — reads the chapter, asks guiding questions, never gives answers directly |
-| `/exercise [topic]` | Guided practice — incremental hints, tracks attempts, generates similar problems |
-| `/exam-prep [range]` | Full exam prep — formula cheat sheet, theorem summaries, must-do exercises, proof strategies, common mistakes, concept map |
-| `/mock-test [range]` | Timed mock exam — 30/50/20 difficulty split, point values, hidden solutions |
-| `/study-guide [range]` | Structured overview — concept hierarchy, section summaries, formula sheet, study order |
-| `/review-test [file]` | Review analysis — predicts exam patterns, finds coverage gaps, generates targeted practice |
-| `/proof [theorem]` | Proof mode — write your proof line by line, Claude verifies each step's logic. Works for theorems, formulas, identities |
-| `/compare [A vs B]` | Side-by-side comparison — definitions, differences, similarities, counterexamples, when to use which |
-| `/visualize [concept]` | ASCII visualization — function graphs, set diagrams, number lines, epsilon-delta illustrations |
-| `/quiz [range]` | Quick 10-question quiz — True/False, fill-in-the-blank, definition matching. Fast review, instant scoring |
-| `/latex [expr]` | LaTeX toggle — explain a formula, get copyable source, or convert plain text to LaTeX |
-| `/translate [lang]` | Translate with math — preserves all LaTeX, configurable bilingual term display |
-| `/btw [question]` | Side question — answered in isolation via sub-agent, resumes study flow automatically |
-| `/settings [k=v]` | Configuration — language, difficulty, term annotations, hint count, render mode |
-| `/progress` | Progress tracker — chapters covered, weak areas, next recommendations |
-
----
-
 ## Quick Start
 
-### 1. Clone
+### Option A: Plugin Install (Claude Code)
+
+```
+/plugin install socratex
+```
+
+### Option B: Clone & Use
 
 ```bash
 git clone https://github.com/Paul-JSN/SocraTeX.git
 cd SocraTeX
 ```
 
-### 2. Add Your Textbook
+Add your textbook files to `books/` and start:
 
-```bash
-mkdir -p books/my-textbook
-# Place your .md files here
 ```
-
-> **Converting from PDF?** Use [MinerU](https://mineru.net) — free, preserves LaTeX, outputs clean Markdown.
-
-### 3. Start Studying
-
-<table>
-<tr>
-<th>Claude Code (VS Code) — Full features</th>
-<th>Claude.ai — Quick start</th>
-</tr>
-<tr>
-<td>
-
-```bash
-claude
 /study ch01
 ```
 
-Open `session.md` in VS Code Markdown Preview for rendered LaTeX.
-
-</td>
-<td>
+### Option C: Claude.ai
 
 1. Create a **Project** on claude.ai
-2. Upload `.md` files → Project Knowledge
-3. Paste `claude-ai/system-prompt.md` → Custom Instructions
+2. Upload `.md` textbook files to **Project Knowledge**
+3. Paste contents of `claude-ai/system-prompt.md` into **Custom Instructions**
 4. Chat: *"Let's study chapter 3"*
 
-</td>
-</tr>
-</table>
+---
 
-### 4. Install Globally (Optional)
+## Skills (24)
 
-```bash
-./install.sh        # macOS / Linux
-./install.ps1       # Windows (PowerShell)
-```
+### Study
 
-Use `/socratex-study`, `/socratex-exercise`, etc. from any project.
+| Skill | What it does |
+|-------|-------------|
+| `/study [chapter]` | Socratic walkthrough — reads the chapter, asks guiding questions |
+| `/exercise [topic]` | Guided practice — incremental hints, tracks attempts |
+| `/solve [problem]` | Worked solution — Claude demonstrates the full solving process |
+| `/derive [formula]` | Step-by-step derivation of formulas, laws, proofs |
+| `/feynman [concept]` | You explain the concept to Claude — Claude probes your understanding |
+
+### Explore
+
+| Skill | What it does |
+|-------|-------------|
+| `/whatif [scenario]` | "What if gravity doubled?" — hypothetical exploration (context-isolated) |
+| `/compare [A vs B]` | Side-by-side comparison — definitions, differences, counterexamples |
+| `/relate [concept]` | Cross-discipline connections — how concepts link across fields |
+| `/visualize [concept]` | ASCII diagrams — graphs, circuits, force diagrams, molecular structures |
+
+### Test Prep
+
+| Skill | What it does |
+|-------|-------------|
+| `/quiz [range]` | Quick 10-question quiz — T/F, fill-in-blank, matching |
+| `/mock-test [range]` | Full mock exam — difficulty distribution, point values, hidden solutions |
+| `/exam-prep [range]` | Comprehensive prep — formulas, theorems, exercises, strategies, common mistakes |
+| `/review-test [file]` | Analyze a past test — predict exam patterns, generate targeted practice |
+
+### Review & Plan
+
+| Skill | What it does |
+|-------|-------------|
+| `/study-guide [range] [exam date]` | Study plan — concept hierarchy, formula sheet. With exam date: day-by-day schedule |
+| `/flashcard [topic]` | Q&A flashcards with Anki-importable export |
+| `/summary [range]` | Concise summary — key concepts, formulas, takeaways |
+| `/prereq [topic]` | Prerequisite check — tests readiness before studying a new topic |
+| `/mistake [topic]` | Mistake analysis — scans your chat history for error patterns + gap analysis |
+| `/roadmap [goal]` | Long-term learning path — what to study next, career connections |
+
+### Utility
+
+| Skill | What it does |
+|-------|-------------|
+| `/translate [lang]` | Translate content — preserves all LaTeX, bilingual term display |
+| `/latex [expr]` | LaTeX toggle — explain a formula, get source, or convert text to LaTeX |
+| `/progress` | Progress tracker — chapters covered, weak areas, recommendations |
+| `/settings [k=v]` | Configuration — language, difficulty, subject, hints, render mode |
+| `/btw [question]` | Side question — answered in isolation, resumes study flow |
 
 ---
 
@@ -126,22 +132,22 @@ Use `/socratex-study`, `/socratex-exercise`, etc. from any project.
 │  │  > /study ch03   │   │                          │ │
 │  │                  │   │  Definition 3.1.1        │ │
 │  │  What do you     │   │                          │ │
-│  │  think this ε    │   │  ∀ε>0, ∃N∈ℕ s.t.        │ │
-│  │  condition       │   │  n≥N ⟹ |aₙ - L| < ε    │ │
-│  │  means?          │   │                          │ │
-│  │                  │   │  Key Formulas:           │ │
-│  │  > It means...   │   │  lim aₙ = L             │ │
+│  │  think this      │   │  For all epsilon > 0,    │ │
+│  │  means           │   │  there exists N such     │ │
+│  │  physically?     │   │  that n >= N implies     │ │
+│  │                  │   │  |a_n - L| < epsilon     │ │
+│  │  > It means...   │   │                          │ │
 │  └──────────────────┘   └──────────────────────────┘ │
 └──────────────────────────────────────────────────────┘
 ```
 
-**Left**: Socratic dialogue with Claude &nbsp;&nbsp;|&nbsp;&nbsp; **Right**: Rendered LaTeX via session file
+**Left**: Socratic dialogue &nbsp;|&nbsp; **Right**: Rendered LaTeX session file
 
 Two render modes:
 
 | Mode | Output | Best for |
 |------|--------|----------|
-| `desktop` (default) | `session.html` — auto-opens in browser, KaTeX CDN, 3s auto-refresh | Claude Code Desktop / CLI |
+| `desktop` (default) | `session.html` — auto-opens in browser, KaTeX, 3s auto-refresh | Claude Code Desktop / CLI |
 | `vscode` | `session.md` — VS Code Markdown Preview | VS Code users |
 
 Change with `/settings render=vscode` or `/settings render=desktop`.
@@ -155,36 +161,37 @@ Edit `socratex.config.md` directly or use `/settings`:
 ```yaml
 study_language: en            # Any ISO 639-1 code (en, ko, ja, zh, es, fr, de, ...)
 show_original_terms: false    # Show original terms alongside translations
-term_format: "translated (original)"   # Options: "translated (original)" | "original → translated" | "translated [original]"
-textbook_path:                # Path to textbook .md files (optional — auto-detected if empty)
+term_format: "translated (original)"
+subject: auto                 # auto | math | physics | chemistry | statistics | economics | engineering
 render_mode: desktop          # desktop (browser) | vscode (Markdown Preview)
 difficulty: adaptive          # easy | medium | hard | adaptive
 hints_before_answer: 3        # Minimum hints before revealing solutions
+textbook_path:                # Path to textbook .md files (auto-detected if empty)
 ```
 
 **Examples:**
 ```
-/settings lang=ko terms=on              →  수렴 (convergence)
-/settings lang=ja terms=on              →  収束 (convergence)
-/settings format="original → translated" →  convergence → 수렴
-/settings path=~/Documents/real-analysis
-/settings difficulty=hard hints=5
+/settings lang=ko terms=on        →  수렴 (convergence)
+/settings subject=physics         →  force subject to physics mode
+/settings difficulty=hard hints=5 →  harder, more hints before answer
 ```
 
 ---
 
-## Works With Any AI
+## Subject Auto-Detection
 
-SocraTeX skills are Claude Code native, but the system works with any AI:
+SocraTeX detects the subject from your textbook content automatically:
 
-| Provider | How to use |
-|----------|-----------|
-| **Claude Code** | Automatic — `/study`, `/exercise`, etc. just work |
-| **Claude.ai** | Paste `claude-ai/system-prompt.md` into Custom Instructions |
-| **Codex / OpenClaw** | Load `CLAUDE.md` + relevant skill `.md` files as system context |
-| **Gemini / GPT / Others** | Same — use `CLAUDE.md` as system prompt, load skills as needed |
+| Subject | Adapts how |
+|---------|-----------|
+| **Math** | Rigorous proofs, epsilon-delta, theorem-definition-proof structure |
+| **Physics** | Derivations, units, dimensional analysis, physical intuition |
+| **Chemistry** | Reaction equations, equilibria, molecular notation |
+| **Statistics** | Distributions, hypothesis testing, confidence intervals |
+| **Economics** | Optimization, equilibrium models, marginal analysis |
+| **Engineering** | System modeling, transfer functions, circuit analysis |
 
-The skill files in `.claude/skills/` are plain Markdown instructions. Any AI that can read text can follow them.
+Override with `/settings subject=physics` or let it auto-detect (`subject=auto`).
 
 ---
 
@@ -192,9 +199,10 @@ The skill files in `.claude/skills/` are plain Markdown instructions. Any AI tha
 
 ```
 SocraTeX/
-├── .claude/skills/      # 15 skills (SKILL.md format)
-├── claude-ai/           # System prompt for Claude.ai
-├── CLAUDE.md            # Rules for Claude (Socratic method, LaTeX, etc.)
+├── .claude-plugin/      # Plugin metadata (plugin.json, marketplace.json)
+├── skills/              # 24 skills (SKILL.md format)
+├── claude-ai/           # System prompt for Claude.ai users
+├── CLAUDE.md            # Core rules (Socratic method, LaTeX, subject detection)
 ├── socratex.config.md   # User settings
 ├── install.sh / .ps1    # Global installation scripts
 └── books/               # Your textbook files go here
@@ -210,9 +218,7 @@ SocraTeX/
 | `.md` textbook files | With LaTeX notation (`$...$`, `$$...$$`) |
 | VS Code + [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) | Optional — for session.md preview |
 
-> **Tip:** Open this repo in VS Code — it will automatically recommend the right extensions.
->
-> **No VS Code?** SocraTeX auto-generates `session.html` with KaTeX CDN. Just open it in any browser — it auto-refreshes every 3 seconds.
+> **No VS Code?** SocraTeX generates `session.html` with KaTeX CDN. Open in any browser — auto-refreshes every 3 seconds.
 
 ---
 

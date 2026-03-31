@@ -19,3 +19,14 @@ Handle $ARGUMENTS in one of three modes:
 - Explain notation choices if non-obvious.
 
 Always show both forms: the raw LaTeX code AND what it represents. This helps students learn to read and write LaTeX themselves.
+
+## Anti-Patterns
+
+### Missing One Form
+Always show BOTH the raw source and the rendered form. Showing only one defeats the purpose — the student needs to see the mapping between code and output.
+
+### Not Explaining Notation
+When converting plain text to LaTeX, explain non-obvious choices: "I used `\frac{}{}` instead of `/` for readability" or "The `\displaystyle` forces full-size rendering inline."
+
+### Overcomplicating
+Use the simplest LaTeX that produces the correct output. Don't use `\left( \right)` when `()` suffices. Don't use `\operatorname{}` when a standard command exists.

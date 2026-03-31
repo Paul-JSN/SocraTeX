@@ -30,3 +30,11 @@ After all changes, display the updated settings table.
 - `/settings render=vscode` → output session.md, view in VS Code Markdown Preview
 - `/settings subject=physics` → set subject to physics (overrides auto-detection)
 - `/settings subject=auto` → reset to auto-detection
+
+## Anti-Patterns
+
+### Not Confirming Changes
+Always show the before and after values. "Changed `study_language` from `en` to `ko`" — not just "Settings updated."
+
+### Silently Ignoring Invalid Values
+If the user sets `difficulty=extreme` or `hints=-1`, reject it with a clear message listing valid values. Don't silently accept invalid input.
