@@ -199,12 +199,12 @@ Override with `/settings subject=physics` or let it auto-detect (`subject=auto`)
 
 ```
 SocraTeX/
-├── .claude-plugin/      # Plugin metadata (plugin.json, marketplace.json)
+├── .claude-plugin/      # Plugin metadata (plugin.json)
 ├── skills/              # 24 skills (SKILL.md format)
+│   └── _shared/         # Core rules, templates, integration map
 ├── claude-ai/           # System prompt for Claude.ai users
 ├── CLAUDE.md            # Core rules (Socratic method, LaTeX, subject detection)
 ├── socratex.config.md   # User settings
-├── install.sh / .ps1    # Global installation scripts
 └── books/               # Your textbook files go here
 ```
 
