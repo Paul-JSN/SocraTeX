@@ -50,7 +50,7 @@ Subject-specific card types:
 ```
 Front<tab>Back
 ```
-One card per line, tab-separated. Wrap in a code block so the student can copy it. LaTeX should use Anki's `\(` and `\)` delimiters for inline, `\[` and `\]` for block.
+One card per line, tab-separated. Wrap in a code block so the student can copy it. LaTeX should use Anki's `\(` and `\)` delimiters for inline, `\[` and `\]` for block. Escape any literal tabs or newlines within card content — replace tabs with spaces and newlines with `<br>` to prevent malformed TSV imports.
 
 Apply `show_original_terms` and `term_format` from config.
 

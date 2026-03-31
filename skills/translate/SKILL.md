@@ -19,7 +19,7 @@ Translate the most recent study content (the last topic, exercise, or explanatio
 - Preserve the structure and formatting of the original content
 - Keep theorem/definition labels in their original form (e.g., "Theorem 3.1.1")
 
-Update the session file (per `render_mode` in config) with the translated version. Append — do not overwrite the original.
+Write the translated version to the session file (per `render_mode` in config). Overwrite — this is a full-document skill.
 
 ## Anti-Patterns
 

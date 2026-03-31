@@ -15,7 +15,7 @@ Otherwise, parse $ARGUMENTS as key=value pairs. Supported keys:
 - `format` → updates `term_format` (quoted string)
 - `path` → updates `textbook_path` (directory path to textbook .md files)
 - `difficulty` → updates `difficulty` (easy, medium, hard, adaptive)
-- `hints` → updates `hints_before_answer` (integer)
+- `hints` → updates `hints_before_answer` (integer, minimum 1 — setting to 0 defeats Socratic method)
 - `render` → updates `render_mode` (desktop or vscode)
 - `subject` → updates `subject` (auto, math, physics, chemistry, statistics, economics, engineering)
 
@@ -39,4 +39,4 @@ After all changes, display the updated settings table.
 Always show the before and after values. "Changed `study_language` from `en` to `ko`" — not just "Settings updated."
 
 ### Silently Ignoring Invalid Values
-If the user sets `difficulty=extreme` or `hints=-1`, reject it with a clear message listing valid values. Don't silently accept invalid input.
+If the user sets `difficulty=extreme`, `hints=-1`, or `hints=0`, reject it with a clear message listing valid values. `hints` must be at least 1 — setting to 0 would disable the Socratic method entirely. Don't silently accept invalid input.

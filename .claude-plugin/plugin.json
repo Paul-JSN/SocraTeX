@@ -7,7 +7,7 @@
   },
   "homepage": "https://github.com/Paul-JSN/SocraTeX",
   "repository": "https://github.com/Paul-JSN/SocraTeX",
-  "license": "MIT",
+  "license": "CC-BY-NC-ND-4.0",
   "keywords": [
     "math",
     "tutor",
@@ -18,16 +18,5 @@
     "exam-prep",
     "education"
   ],
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ ! -f socratex.config.md ] && cp \"${CLAUDE_PLUGIN_ROOT}/socratex.config.md\" socratex.config.md || true"
-          }
-        ]
-      }
-    ]
-  }
+  "hooks": {}
 }
