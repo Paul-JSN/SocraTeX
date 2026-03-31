@@ -3,7 +3,9 @@ name: summary
 description: Use when the user wants a concise summary of studied content — key concepts, formulas, and takeaways in a compact format. Works with any STEM subject
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS:
 - A topic or chapter range — summarize that content from textbook files
@@ -93,4 +95,4 @@ After generating:
 | Preparing for exam | `/exam-prep [range]` for comprehensive prep |
 | Wants to go deeper on one concept | `/derive [formula]` or `/whatif [concept]` |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

@@ -3,7 +3,9 @@ name: visualize
 description: Use when the user wants ASCII diagrams or visual representations of concepts — epsilon-delta, circuits, force diagrams, molecular structures, function behavior, probability distributions, etc.
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to identify what to visualize (e.g., "epsilon-delta", "free-body diagram", "orbital diagram", "probability distribution", "circuit diagram", "function continuity").
 
@@ -145,4 +147,4 @@ After creating the visualization:
 | Wants to practice | `/exercise [topic]` with problems that require visual reasoning |
 | Wants to compare two visual concepts | `/compare [concept A vs B]` with diagrams for each |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

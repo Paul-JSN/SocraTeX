@@ -3,11 +3,11 @@ name: whatif
 description: Use when the user asks "what if" or wants to explore hypothetical scenarios — changing variables, removing constraints, or testing edge cases. Context-isolated so it doesn't disrupt study flow. Works with any STEM subject
 ---
 
-This skill provides context isolation, like `/btw`. The what-if exploration must NOT derail the current study session.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
 
-Use the Agent tool to spawn a sub-agent that handles the what-if scenario independently. The sub-agent should:
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, render_mode=desktop, subject=auto.
+This what-if exploration must NOT derail the current study session.
 
 Parse $ARGUMENTS to identify the scenario. This can be:
 - Numerical: "what if mass = 100kg?", "what if x = 0?"
@@ -48,13 +48,13 @@ Work through the consequences step by step. Adapt to scenario type:
 - Connect back to the underlying principle
 - State what this reveals about the original concept
 
-After the sub-agent finishes, display the result and state:
+After the exploration, state:
 
 "Back to our study session —"
 
-Resume from where the student left off.
+Then briefly remind the student where we left off and resume exactly from that point.
 
-This is interactive chat — do NOT write to session.md.
+This is interactive chat — do NOT write to the session file.
 
 ---
 
@@ -96,4 +96,4 @@ After the exploration:
 | Student wants to practice with varied parameters | `/exercise [topic]` with parameter variation |
 | What-if connected to another field | `/relate [concept]` for cross-discipline connections |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

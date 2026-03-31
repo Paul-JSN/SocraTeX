@@ -3,7 +3,9 @@ name: mock-test
 description: Use when the user wants a practice exam with difficulty distribution, point values, time estimates, and hidden solutions
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS as a chapter range. Find textbook .md files — check `textbook_path` from config first, then `books/`, then the working directory, or use files provided in the conversation. Read all exercises and theorems in that range.
 
@@ -25,13 +27,13 @@ Generate a mock exam:
 
 **Solutions:** Do NOT show solutions initially. When the student says "solutions", "answers", or "show solutions", then reveal step-by-step solutions for each question.
 
-Write the mock test to `session.md` in the working directory (overwrite for clean test format).
+Write the mock test to the session file (`session.html` if `render_mode: desktop`, `session.md` if `render_mode: vscode`) (overwrite for clean test format).
 
 ---
 
 ## Style Learning
 
-Follow `_shared/style-analysis-guide.md` for full methodology.
+Follow `${CLAUDE_PLUGIN_ROOT}/skills/_shared/style-analysis-guide.md` for full methodology.
 
 When past exams or problem sets are available, match their exact format before defaulting to any standard structure:
 - **Question count**: If past exams always have 6 questions, generate exactly 6 — not 10 or 15
@@ -99,7 +101,7 @@ After generating the mock test, run these checks before presenting it:
 
 ## Integration
 
-This skill connects to the exam prep flow (see `_shared/skill-integration-map.md`):
+This skill connects to the exam prep flow (see `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md`):
 
 - **After completing the mock test**, suggest `/review-test` — the student can submit their answers for detailed analysis of what they got right/wrong and why
 - **After completing the mock test**, suggest `/mistake [topic]` to identify error patterns across multiple attempts

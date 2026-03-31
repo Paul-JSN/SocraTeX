@@ -3,7 +3,9 @@ name: mistake
 description: Use when the user wants to identify mistakes, gaps, and misconceptions. Analyzes the student's actual error patterns from conversation history, exercises, and quizzes to generate targeted corrections. Works with any STEM subject
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to identify the topic scope (e.g., "limits", "Newton's third law", "all"). If empty, analyze all topics covered in this session.
 
@@ -61,7 +63,7 @@ For each actual mistake the student made:
 
 ### Step 4: Common mistakes (supplementary)
 
-Reference `mistake/common-stem-mistakes.md` for the detected subject. Add 2-3 common mistakes for the topic that the student has NOT made yet — as a preventive warning. Keep this section brief; the focus is on actual student data.
+Reference `${CLAUDE_PLUGIN_ROOT}/skills/mistake/common-stem-mistakes.md` for the detected subject. Add 2-3 common mistakes for the topic that the student has NOT made yet — as a preventive warning. Keep this section brief; the focus is on actual student data.
 
 ### Step 5: Targeted practice plan
 
@@ -103,7 +105,7 @@ If there are 10+ mistakes, prioritize. Present the top 3-5 patterns that will fi
 ### Praising to Soften the Blow
 This skill is diagnostic. Be direct and specific, not encouraging. "You made 4 sign errors" is more useful than "Great effort! Just watch out for a few small sign things."
 
-Read `_shared/socratic-anti-patterns.md` for additional anti-patterns.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/socratic-anti-patterns.md` for additional anti-patterns.
 
 ## Verification
 
@@ -124,4 +126,4 @@ After presenting the analysis:
 | Gaps are closed | `/exercise` for harder problems, or move to next topic |
 | Student disagrees with diagnosis | `/feynman [concept]` — have them explain the concept to verify understanding |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

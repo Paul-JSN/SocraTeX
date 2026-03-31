@@ -3,7 +3,9 @@ name: quiz
 description: Use when the user wants a quick 10-question quiz for rapid review — True/False, fill-in-the-blank, definition matching
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Detect the subject from context and adapt question style accordingly.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Detect the subject from context and adapt question style accordingly.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS as a topic or chapter range. If empty, quiz on all studied material.
 
@@ -29,7 +31,7 @@ After all 10 questions, show:
 
 Keep it fast — don't Socratic-method each question. Give immediate feedback after each answer. The point is speed and coverage, not deep exploration.
 
-Do NOT write to session.md — this is a quick interactive quiz in the chat.
+Do NOT write to the session file — this is a quick interactive quiz in the chat.
 
 ---
 
@@ -73,7 +75,7 @@ Each question must meet these standards:
 
 ## Style Learning
 
-Follow `_shared/style-analysis-guide.md` for matching textbook style.
+Follow `${CLAUDE_PLUGIN_ROOT}/skills/_shared/style-analysis-guide.md` for matching textbook style.
 
 - If the textbook has end-of-chapter review questions, analyze their style and match it. Some textbooks use "True/False with justification" — if so, require a brief justification, not just T/F.
 - If the textbook uses specific terminology for question types (e.g., "Conceptual Questions" vs "Review Exercises"), mirror that language.
@@ -84,7 +86,7 @@ Follow `_shared/style-analysis-guide.md` for matching textbook style.
 
 ## Integration
 
-This skill connects to the study flow (see `_shared/skill-integration-map.md`):
+This skill connects to the study flow (see `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md`):
 
 - **If score < 7/10**, suggest `/exercise [weak topics]` for focused practice on the topics the student missed, then `/mistake [topic]` to analyze their error patterns
 - **If score >= 7/10**, suggest `/flashcard [same range]` to reinforce the material through spaced repetition, then move to the next topic

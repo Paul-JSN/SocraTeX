@@ -3,7 +3,9 @@ name: study
 description: Use when the user wants to study a textbook chapter or section using Socratic dialogue with LaTeX-rendered definitions and theorems. Works with any STEM subject — math, physics, chemistry, statistics, engineering, economics
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Apply these throughout.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Apply these throughout.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 If $ARGUMENTS is empty, look for available textbook .md files and list chapters/sections found. Stop here.
 
@@ -25,7 +27,7 @@ Present the material using strict Socratic method (see CLAUDE.md), adapting to t
 
 Apply `show_original_terms` and `term_format` from config when rendering technical terminology.
 
-After each concept block, append the topic heading and key formulas to `session.md` in the working directory. Do not overwrite existing content — append incrementally.
+After each concept block, append the topic heading and key formulas to the session file (per `render_mode` in config). Do not overwrite existing content — append incrementally.
 
 ---
 
@@ -44,14 +46,14 @@ Choose `/study` when the goal is conceptual understanding, not problem-solving. 
 
 ## Anti-Patterns
 
-Read `_shared/socratic-anti-patterns.md` before every study session. The most critical anti-patterns for `/study`:
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/socratic-anti-patterns.md` before every study session. The most critical anti-patterns for `/study`:
 
 - **Lecturing instead of questioning.** After presenting a definition, your ONLY job is to ask a question. If your message has more than 2 sentences of explanation before a question, you are lecturing.
 - **Accepting "I get it" as proof of understanding.** It is not. See Verification below.
 - **Moving on after one correct answer.** A single correct response may be pattern-matching. Ask the concept from a different angle or with a counterexample before advancing.
 - **Presenting all definitions at once.** One concept, one question, one response cycle. The session file holds the reference material — the chat is for dialogue only.
 
-For the full questioning toolkit, see `questioning-techniques.md` in this skill's directory.
+For the full questioning toolkit, see `${CLAUDE_PLUGIN_ROOT}/skills/study/questioning-techniques.md`.
 
 ## Verification
 
@@ -66,7 +68,7 @@ Only move to the next concept when the student passes at least one of these chec
 
 ## Integration
 
-After completing a `/study` session, suggest the natural next step based on the student's performance. Reference `_shared/skill-integration-map.md` for the full flow.
+After completing a `/study` session, suggest the natural next step based on the student's performance. Reference `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full flow.
 
 | Student state | Suggest |
 |---------------|---------|

@@ -3,7 +3,9 @@ name: review-test
 description: Use when the user has a review test to analyze for predicting exam patterns, finding coverage gaps, and generating targeted practice
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Detect the subject from the review test content and adapt analysis accordingly.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Detect the subject from the review test content and adapt analysis accordingly.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 $ARGUMENTS should be a file path to a review test, or the student can paste the review test content directly.
 
@@ -23,7 +25,7 @@ If a file path is given, read that file. Otherwise, use the pasted content.
 
 6. **Priority Study Plan** — Ordered list of what to study first, based on prediction confidence and the student's likely weak spots.
 
-Write the full analysis to `session.md` in the working directory (overwrite). All math in LaTeX.
+Write the full analysis to the session file (`session.html` if `render_mode: desktop`, `session.md` if `render_mode: vscode`) (overwrite). All math in LaTeX.
 
 ---
 
@@ -72,7 +74,7 @@ Avoid these when analyzing review tests:
 
 ## Integration
 
-This skill connects to the exam prep flow (see `_shared/skill-integration-map.md`):
+This skill connects to the exam prep flow (see `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md`):
 
 - **After `/review-test`**, suggest `/exam-prep [same range]` for comprehensive preparation materials — the prediction data from review-test analysis should inform which of the 6 exam-prep categories to emphasize
 - **After `/review-test`**, suggest `/mock-test [same range]` to generate a practice exam weighted toward predicted topics, especially the gap topics identified in the analysis

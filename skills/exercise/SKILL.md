@@ -3,7 +3,9 @@ name: exercise
 description: Use when the user wants to practice problems with guided hints, tracking attempts before revealing solutions. Works with any STEM subject
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to locate relevant exercises. Find textbook .md files — check `textbook_path` from config first, then `books/`, then the working directory, or use files provided in the conversation. If $ARGUMENTS is a topic name, find exercises related to that topic. If it is a number, find that specific exercise.
 
@@ -25,7 +27,7 @@ Guide the student through solving — do NOT give the answer. Adapt to the subje
 
 When the student says "more" or "similar", generate a new problem of the same type and difficulty.
 
-After presenting each exercise and during solution steps, update `session.md` in the working directory with the current exercise and key formulas. Append, do not overwrite.
+After presenting each exercise and during solution steps, update the session file (per `render_mode` in config) with the current exercise and key formulas. Append, do not overwrite.
 
 ---
 
@@ -62,17 +64,17 @@ Each hint must be strictly more specific than the previous one. If hint 2 is no 
 ### Giving All Hints at Once
 One hint per message. Wait for the student to respond and attempt something before offering the next hint.
 
-Read `_shared/socratic-anti-patterns.md` for the full anti-pattern reference.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/socratic-anti-patterns.md` for the full anti-pattern reference.
 
 ## Style Learning
 
-Before generating problems, read `_shared/style-analysis-guide.md` and analyze the textbook's exercise style:
+Before generating problems, read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/style-analysis-guide.md` and analyze the textbook's exercise style:
 - Match the numbering format, sub-part structure, and difficulty curve
 - Use the same variable names and notation conventions as the textbook
 - If the textbook uses "Show that..." for proofs, use "Show that..." (not "Prove that...")
 - Generated problems should look like they belong in the same textbook
 
-For detailed problem creation strategies, see `problem-generation-guide.md` in this skill's directory.
+For detailed problem creation strategies, see `${CLAUDE_PLUGIN_ROOT}/skills/exercise/problem-generation-guide.md`.
 
 ## Hint Progression Example
 
@@ -108,7 +110,7 @@ When `difficulty=adaptive` in config, apply this calibration automatically. When
 
 ## Integration
 
-After an exercise session, suggest the natural next step. Reference `_shared/skill-integration-map.md` for the full flow.
+After an exercise session, suggest the natural next step. Reference `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full flow.
 
 | Student state | Suggest |
 |---------------|---------|

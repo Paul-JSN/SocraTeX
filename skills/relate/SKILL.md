@@ -3,7 +3,9 @@ name: relate
 description: Use when the user wants to see how a concept connects to other fields, subjects, or real-world applications. Cross-disciplinary bridges for deeper understanding
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to identify the concept (e.g., "eigenvalues", "entropy", "gradient", "equilibrium", "Fourier transform").
 
@@ -87,4 +89,4 @@ After generating the connection map:
 | Wants to formalize the connection | `/derive [shared formula]` |
 | Wants to practice applying the concept | `/exercise [topic]` with cross-disciplinary problems |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

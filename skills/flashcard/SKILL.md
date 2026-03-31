@@ -3,7 +3,9 @@ name: flashcard
 description: Use when the user wants to generate Q&A flashcards from studied content for review or Anki export. Works with any STEM subject
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to determine scope:
 - A topic or chapter range — generate flashcards from that content
@@ -102,4 +104,4 @@ After generating the set:
 | Preparing for exam | `/exam-prep [range]` for comprehensive review |
 | Wants to add to existing set | `/flashcard [new topic]` — append to the session file |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

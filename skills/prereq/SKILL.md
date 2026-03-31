@@ -3,7 +3,9 @@ name: prereq
 description: Use when the user wants to check prerequisite knowledge before studying a topic. Identifies what the student needs to know first and tests readiness. Works with any STEM subject
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to identify the target topic (e.g., "chapter 5", "Fourier transform", "thermodynamics", "multiple regression").
 
@@ -55,7 +57,7 @@ Based on the readiness check:
 - **Gaps found** — List specific gaps and recommend: "Review [prerequisite] first with `/study [prerequisite]`, then come back"
 - **Major gaps** — "You need to build up to this. Here's the recommended study path: [ordered list]"
 
-This is interactive chat — do NOT write to session.md.
+This is interactive chat — do NOT write to the session file.
 
 ---
 
@@ -88,7 +90,7 @@ Be direct about gaps without being harsh. Frame it as a path, not a wall.
 - BAD: "You're not ready for this topic"
 - GOOD: "You need to solidify [X] first — try `/study [X]`, then come back to `/prereq [topic]` to re-check"
 
-Read `_shared/socratic-anti-patterns.md` for additional anti-patterns relevant to the readiness check dialogue.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/socratic-anti-patterns.md` for additional anti-patterns relevant to the readiness check dialogue.
 
 ## Verification
 
@@ -107,4 +109,4 @@ The readiness check IS the verification. But ensure:
 | Student already knows the topic | `/exercise [topic]` or `/feynman [topic]` to verify depth |
 | Wants to skip prerequisites | Warn, but respect their choice. Suggest `/study [topic]` with a note that they may need to backtrack |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

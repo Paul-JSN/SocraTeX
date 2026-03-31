@@ -3,7 +3,9 @@ name: feynman
 description: Use when the user wants to test their understanding by explaining a concept back to Claude. Based on the Feynman technique — "if you can't explain it simply, you don't truly understand it." Claude plays the role of a curious student who asks probing questions
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to identify the concept the student will explain (e.g., "eigenvalues", "Newton's second law", "Le Chatelier's principle", "central limit theorem").
 
@@ -30,7 +32,7 @@ Once the basic explanation is done, push further:
 **Phase 4: Assessment**
 After the student has finished explaining, give honest feedback using the Assessment Rubric below.
 
-This is fully interactive chat — do NOT write to session.md.
+This is fully interactive chat — do NOT write to the session file.
 
 ---
 
@@ -53,7 +55,7 @@ When the student uses a technical term to explain another technical term, call i
 ### Not Following Up on Weak Spots
 If the student hesitates, hedges ("I think maybe..."), or gives a vague answer, that is a signal to dig in — not move on. "You seem unsure about that part. Let's stay here. What exactly happens at that step?"
 
-Read `_shared/socratic-anti-patterns.md` for additional anti-patterns relevant to all interactive skills.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/socratic-anti-patterns.md` for additional anti-patterns relevant to all interactive skills.
 
 ## Assessment Rubric
 
@@ -89,7 +91,7 @@ The student must demonstrate understanding through action, not words.
 
 ## Integration
 
-After the Feynman session, suggest the natural next step. Reference `_shared/skill-integration-map.md`.
+After the Feynman session, suggest the natural next step. Reference `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md`.
 
 | Assessment result | Suggest |
 |-------------------|---------|

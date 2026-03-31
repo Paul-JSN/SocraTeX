@@ -3,7 +3,9 @@ name: derive
 description: Use when the user wants to derive a formula, equation, or law step by step with Socratic guidance. Works with any STEM subject — physics equations, math identities, chemistry equilibria
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to identify what to derive (e.g., "E=mc^2", "quadratic formula", "Nernst equation", "central limit theorem", "Euler-Lagrange equation").
 
@@ -63,7 +65,7 @@ Guide the student through the derivation interactively:
 
 ## Guidance Spectrum
 
-Scale guidance from broad to specific based on how stuck the student is. Reference `_shared/socratic-anti-patterns.md` for what to avoid at each level.
+Scale guidance from broad to specific based on how stuck the student is. Reference `${CLAUDE_PLUGIN_ROOT}/skills/_shared/socratic-anti-patterns.md` for what to avoid at each level.
 
 | Student state | Guidance level | Example hint |
 |---|---|---|
@@ -110,7 +112,7 @@ Ask the student to perform the verification: "How can we check that this result 
 | `/study` then `/derive` | When a formula appears during study | "Want to see where this comes from? `/derive [formula]`" |
 | `/exercise` then `/derive` | When student uses a formula without understanding it | "Let's understand why this works: `/derive [formula]`" |
 
-See `_shared/skill-integration-map.md` for the full skill chaining diagram.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill chaining diagram.
 
 ## Example Interaction
 

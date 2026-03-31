@@ -3,6 +3,8 @@ name: latex
 description: Use when the user wants to toggle between LaTeX source code and plain-language explanation, or convert text to LaTeX notation
 ---
 
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
+
 Handle $ARGUMENTS in one of three modes:
 
 **LaTeX expression given** (contains `\`, `$`, `^`, `_`, `{`, or `}`):

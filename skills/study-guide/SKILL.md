@@ -3,7 +3,9 @@ name: study-guide
 description: Use when the user needs a structured study plan — concept hierarchy, formula sheet, study order, and time estimates. If an exam date is given, generates a realistic schedule that fits the available time. Works with any STEM subject
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Detect the subject from content and adapt the guide structure accordingly.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Detect the subject from content and adapt the guide structure accordingly.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS as a chapter range and optionally an exam date (e.g., "ch1-ch5 exam 4/15", "chapters 1-3 midterm next Monday", "sections 3.1-3.4 by Friday").
 
@@ -119,4 +121,4 @@ After the guide is generated:
 | Wants flashcards for review | `/flashcard [range]` for memorization |
 | Completed the plan, exam tomorrow | `/exam-prep [range]` for final review materials |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

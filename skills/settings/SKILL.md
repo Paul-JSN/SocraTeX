@@ -3,7 +3,9 @@ name: settings
 description: Use when the user wants to view or change SocraTeX settings — language, term annotation, difficulty, hints, render mode, subject
 ---
 
-If `socratex.config.md` does not exist, create it with defaults (study_language: en, show_original_terms: false, difficulty: adaptive, hints_before_answer: 3, render_mode: desktop, subject: auto) before proceeding. Then read `socratex.config.md`.
+If `socratex.config.md` does not exist in the working directory, create it with defaults (copy from `${CLAUDE_PLUGIN_ROOT}/socratex.config.md` if available, otherwise create with defaults: study_language: en, show_original_terms: false, difficulty: adaptive, hints_before_answer: 3, render_mode: desktop, subject: auto) before proceeding. Then read `socratex.config.md`.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 If $ARGUMENTS is empty, display all current settings in a clean table format. Stop here.
 

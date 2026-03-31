@@ -3,7 +3,9 @@ name: solve
 description: Use when the user wants to see a complete worked solution — Claude demonstrates the full solving process step by step. Unlike /exercise (student solves), here Claude shows how. Works with any STEM subject
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to identify the problem. This can be:
 - An exercise number from the textbook
@@ -27,7 +29,7 @@ Find relevant textbook content if available. Detect the subject. Adapt the solut
 
 Present the problem statement clearly in LaTeX.
 
-Follow the structure in `solve/solution-template.md`:
+Follow the structure in `${CLAUDE_PLUGIN_ROOT}/skills/solve/solution-template.md`:
 
 ### Step 1: Problem Setup
 - Restate the problem unambiguously
@@ -75,7 +77,7 @@ Avoid these when writing solutions:
 
 ## Solution Quality Checklist
 
-Before presenting a solution, verify against `solve/solution-template.md`:
+Before presenting a solution, verify against `${CLAUDE_PLUGIN_ROOT}/skills/solve/solution-template.md`:
 - [ ] Problem restated clearly (no ambiguity from original)
 - [ ] Givens/unknowns/assumptions listed explicitly
 - [ ] Strategy stated and justified BEFORE computation begins
@@ -89,7 +91,7 @@ Before presenting a solution, verify against `solve/solution-template.md`:
 
 ## Style Matching
 
-Reference `_shared/style-analysis-guide.md` to match the textbook's solution style:
+Reference `${CLAUDE_PLUGIN_ROOT}/skills/_shared/style-analysis-guide.md` to match the textbook's solution style:
 - Use the same notation conventions (variable names, vector notation, derivative notation)
 - Follow the textbook's level of formality
 - If the textbook shows solutions in a particular format, replicate it

@@ -3,7 +3,9 @@ name: roadmap
 description: Use when the user wants a long-term learning path beyond the current textbook — what to study next, prerequisite chains across courses, career-oriented study paths. Goes beyond textbook scope using general knowledge
 ---
 
-If `socratex.config.md` exists, read it for settings. Otherwise use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, render_mode=desktop, subject=auto.
+Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto.
+
+Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
 Parse $ARGUMENTS to identify the goal. This can be:
 - A subject area: "linear algebra", "quantum mechanics", "machine learning"
@@ -114,4 +116,4 @@ After generating the roadmap:
 | Wants to explore a specific branch | `/study [branch topic]` or ask for a more detailed roadmap of that branch |
 | Finished a roadmap stage | Update the roadmap: `/roadmap [same goal]` to recalibrate |
 
-See `_shared/skill-integration-map.md` for the full skill flow.
+See `${CLAUDE_PLUGIN_ROOT}/skills/_shared/skill-integration-map.md` for the full skill flow.

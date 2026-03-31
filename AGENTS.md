@@ -1,7 +1,7 @@
 # SocraTeX — Project Rules
 
 ## What This Is
-A universal math textbook study system. PDF → Markdown → Codex studies with you using Socratic method.
+A universal math textbook study system. PDF → Markdown → Claude studies with you using Socratic method.
 Works with any .md textbook files — the PDF converter is optional.
 
 ## Core Rules
@@ -69,7 +69,7 @@ Do NOT dump reference content only into chat — the student would have to scrol
 | `/flashcard` | Brief confirmation | FULL flashcard set (Q&A pairs) |
 | `/derive` | Step-by-step Socratic dialogue | Final completed derivation |
 | `/whatif` | Interactive what-if exploration (isolated) | — |
-| `/feynman` | Student explains, Codex probes | — |
+| `/feynman` | Student explains, Claude probes | — |
 | `/summary` | Brief "here's your summary" | FULL concise summary |
 | `/relate` | Brief "here are the connections" | FULL cross-discipline map |
 | `/mistake` | Brief overview | FULL gap analysis + mistake patterns + practice plan |
@@ -81,7 +81,7 @@ Do NOT dump reference content only into chat — the student would have to scrol
 
 Check `render_mode` in `socratex.config.md` to decide output behavior:
 
-**`render_mode: desktop`** (for Codex Desktop/CLI):
+**`render_mode: desktop`** (for Claude Desktop/CLI):
 - Write reference content to `session.html` in the current book directory
 - Use this HTML template (KaTeX CDN + 3-second auto-refresh):
   ```html
@@ -141,10 +141,10 @@ Textbook files can be anywhere — in the working directory, subdirectories, or 
 | `/flashcard [topic/range]` | Generate Q&A flashcards, Anki export |
 | `/derive [formula/law]` | Step-by-step formula/law derivation |
 | `/whatif [scenario]` | What-if exploration (isolated, numerical + conceptual) |
-| `/feynman [concept]` | Student explains concept to Codex (Feynman technique) |
+| `/feynman [concept]` | Student explains concept to Claude (Feynman technique) |
 | `/summary [range]` | Concise summary of studied content |
 | `/relate [concept]` | Cross-discipline concept connections |
 | `/mistake [topic]` | Analyze student's actual mistake patterns + gap analysis |
 | `/prereq [topic]` | Check prerequisite knowledge, test readiness |
-| `/solve [problem]` | Full worked solution (Codex demonstrates) |
+| `/solve [problem]` | Full worked solution (Claude demonstrates) |
 | `/roadmap [goal]` | Long-term learning path + career connections |

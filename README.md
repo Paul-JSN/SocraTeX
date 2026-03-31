@@ -43,7 +43,7 @@ Your .md textbook  ──>  Claude reads it  ──>  Detects subject  ──>  
 ### Option A: Plugin Install (Claude Code)
 
 ```
-/plugin install socratex
+/install github:Paul-JSN/SocraTeX
 ```
 
 ### Option B: Clone & Use
