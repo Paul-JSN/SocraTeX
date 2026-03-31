@@ -16,7 +16,11 @@
     "study",
     "latex",
     "exam-prep",
-    "education"
+    "education",
+    "stem",
+    "physics",
+    "chemistry",
+    "statistics"
   ],
   "hooks": {}
 }

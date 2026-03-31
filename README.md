@@ -38,33 +38,17 @@ Your .md textbook  ──>  Claude reads it  ──>  Detects subject  ──>  
 
 ---
 
-## Quick Start
-
-### Option A: Plugin Install (Claude Code)
+## Install
 
 ```
 /install github:Paul-JSN/SocraTeX
 ```
 
-### Option B: Clone & Use
-
-```bash
-git clone https://github.com/Paul-JSN/SocraTeX.git
-cd SocraTeX
-```
-
-Add your textbook files to `books/` and start:
+Then start studying:
 
 ```
 /study ch01
 ```
-
-### Option C: Claude.ai
-
-1. Create a **Project** on claude.ai
-2. Upload `.md` textbook files to **Project Knowledge**
-3. Paste contents of `claude-ai/system-prompt.md` into **Custom Instructions**
-4. Chat: *"Let's study chapter 3"*
 
 ---
 
@@ -156,7 +140,7 @@ Change with `/settings render=vscode` or `/settings render=desktop`.
 
 ## Configuration
 
-Edit `socratex.config.md` directly or use `/settings`:
+Use `/settings` to configure:
 
 ```yaml
 study_language: en            # Any ISO 639-1 code (en, ko, ja, zh, es, fr, de, ...)
@@ -199,13 +183,18 @@ Override with `/settings subject=physics` or let it auto-detect (`subject=auto`)
 
 ```
 SocraTeX/
-├── .claude-plugin/      # Plugin metadata (plugin.json)
-├── skills/              # 24 skills (SKILL.md format)
-│   └── _shared/         # Core rules, templates, integration map
-├── claude-ai/           # System prompt for Claude.ai users
-├── CLAUDE.md            # Core rules (Socratic method, LaTeX, subject detection)
-├── socratex.config.md   # User settings
-└── books/               # Your textbook files go here
+├── .claude-plugin/          # Marketplace metadata
+│   ├── marketplace.json
+│   └── plugin.json
+├── plugin/                  # Plugin content (installed by /install)
+│   ├── .claude-plugin/
+│   │   └── plugin.json
+│   ├── skills/              # 24 skills (SKILL.md format)
+│   │   └── _shared/         # Core rules, templates, integration map
+│   └── socratex.config.md   # Default settings
+├── docs/                    # Translations
+├── LICENSE
+└── README.md
 ```
 
 ---
@@ -214,7 +203,7 @@ SocraTeX/
 
 | Requirement | Notes |
 |-------------|-------|
-| Claude Code or Claude.ai | Any active plan |
+| Claude Code | Any active plan |
 | `.md` textbook files | With LaTeX notation (`$...$`, `$$...$$`) |
 | VS Code + [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) | Optional — for session.md preview |
 

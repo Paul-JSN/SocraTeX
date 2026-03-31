@@ -1,15 +1,8 @@
-# Converted textbooks (user-specific)
-books/
-!books/.gitkeep
-
-# Session files
+# Session files (generated in user's working directory)
 session.md
 session.html
 
 # IDE
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
 .idea/
 *.swp
 *.swo
