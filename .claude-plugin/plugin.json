@@ -1,7 +1,7 @@
 {
   "name": "socratex",
-  "description": "Socratic math tutor — turns any markdown textbook into an interactive study system with guided questioning, exercises, exam prep, mock tests, and LaTeX rendering",
-  "version": "1.0.0",
+  "description": "Socratic STEM tutor — turns any markdown textbook into an interactive study system with guided questioning, exercises, exam prep, mock tests, and LaTeX rendering. Supports math, physics, chemistry, statistics, economics, and engineering with auto-detection",
+  "version": "1.1.0",
   "author": {
     "name": "Paul-JSN"
   },
