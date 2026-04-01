@@ -1,6 +1,6 @@
 # Installing SocraTeX for Codex
 
-Enable SocraTeX skills in Codex via native skill discovery. Clone and copy skills into Codex's skill directory.
+Enable SocraTeX skills in Codex via native skill discovery. Clone and symlink.
 
 ## Prerequisites
 
@@ -13,14 +13,16 @@ Enable SocraTeX skills in Codex via native skill discovery. Clone and copy skill
    git clone https://github.com/Paul-JSN/SocraTeX.git ~/.codex/socratex
    ```
 
-2. **Copy skills into Codex's skill directory:**
+2. **Create the skills symlink:**
    ```bash
-   cp -r ~/.codex/socratex/plugin/skills/* ~/.codex/skills/
+   mkdir -p ~/.agents/skills
+   ln -s ~/.codex/socratex/plugin/skills ~/.agents/skills/socratex
    ```
 
    **Windows (PowerShell):**
    ```powershell
-   Copy-Item -Recurse -Force "$env:USERPROFILE\.codex\socratex\plugin\skills\*" "$env:USERPROFILE\.codex\skills\"
+   New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
+   cmd /c mklink /J "$env:USERPROFILE\.agents\skills\socratex" "$env:USERPROFILE\.codex\socratex\plugin\skills"
    ```
 
 3. **Restart Codex** to discover skills.
@@ -28,30 +30,23 @@ Enable SocraTeX skills in Codex via native skill discovery. Clone and copy skill
 ## Verify
 
 ```bash
-ls ~/.codex/skills/study/SKILL.md
+ls -la ~/.agents/skills/socratex
 ```
 
-You should see the SKILL.md file. All 24 SocraTeX skill folders + `_shared/` should be in `~/.codex/skills/`.
+You should see a symlink pointing to your SocraTeX skills directory with 24 skill folders + `_shared/`.
 
 ## Updating
 
 ```bash
 cd ~/.codex/socratex && git pull
-cp -r ~/.codex/socratex/plugin/skills/* ~/.codex/skills/
 ```
 
-**Windows (PowerShell):**
-```powershell
-cd "$env:USERPROFILE\.codex\socratex"; git pull
-Copy-Item -Recurse -Force "$env:USERPROFILE\.codex\socratex\plugin\skills\*" "$env:USERPROFILE\.codex\skills\"
-```
+Skills update instantly through the symlink.
 
 ## Uninstalling
 
-Remove each SocraTeX skill folder from `~/.codex/skills/`:
-
 ```bash
-cd ~/.codex/skills && rm -rf _shared btw compare derive exam-prep exercise feynman flashcard latex mistake mock-test prereq progress quiz relate review-test roadmap settings solve study study-guide summary translate visualize whatif
+rm ~/.agents/skills/socratex
 ```
 
 Optionally delete the clone: `rm -rf ~/.codex/socratex`.
