@@ -40,9 +40,19 @@ Your .md textbook  ──>  Claude reads it  ──>  Detects subject  ──>  
 
 ## Install
 
+### Claude Code
+
 ```
 /install github:Paul-JSN/SocraTeX
 ```
+
+### Codex
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/SocraTeX/refs/heads/main/.codex/INSTALL.md
+```
+
+See [Codex guide](docs/README.codex.md) for details.
 
 Then start studying:
 
