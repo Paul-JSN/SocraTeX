@@ -24,36 +24,29 @@ Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/So
    git clone https://github.com/Paul-JSN/SocraTeX.git ~/.codex/socratex
    ```
 
-2. Create the skills symlink:
+2. Copy skills into Codex's skill directory:
    ```bash
-   mkdir -p ~/.agents/skills
-   ln -s ~/.codex/socratex/plugin/skills ~/.agents/skills/socratex
+   cp -r ~/.codex/socratex/plugin/skills/* ~/.codex/skills/
    ```
 
 3. Restart Codex.
 
 ### Windows
 
-Use a junction instead of a symlink:
-
 ```powershell
-New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
-cmd /c mklink /J "$env:USERPROFILE\.agents\skills\socratex" "$env:USERPROFILE\.codex\socratex\plugin\skills"
+git clone https://github.com/Paul-JSN/SocraTeX.git "$env:USERPROFILE\.codex\socratex"
+Copy-Item -Recurse -Force "$env:USERPROFILE\.codex\socratex\plugin\skills\*" "$env:USERPROFILE\.codex\skills\"
 ```
 
 ## How It Works
 
-Codex has native skill discovery — it scans `~/.agents/skills/` at startup, parses SKILL.md frontmatter, and loads skills on demand.
+Codex scans `~/.codex/skills/` at startup, parses SKILL.md frontmatter, and loads skills on demand.
 
-```
-~/.agents/skills/socratex/ → ~/.codex/socratex/plugin/skills/
-```
+After installation, 24 SocraTeX skill folders are copied directly into `~/.codex/skills/`. Codex discovers them automatically.
 
-24 skills are discovered automatically. Codex activates them when the task matches a skill's description.
+> **Note:** Codex does not follow symlinks for skill discovery ([known issue](https://github.com/openai/codex/issues/11314)). This is why skills are copied directly instead of symlinked.
 
 ## Skills Compatibility
-
-SocraTeX skills fall into two categories for Codex:
 
 ### Works great in Codex (single-output)
 
@@ -95,7 +88,7 @@ These skills use Socratic dialogue — they ask questions and wait for student r
 
 Place your `.md` textbook files in the working directory. SocraTeX skills look for textbook content in:
 
-1. `textbook_path` from `socratex.config.md` (if exists)
+1. `textbook_path` from `socratex.config.md` (if exists in working directory)
 2. `books/` directory
 3. Current working directory
 4. Files provided in conversation
@@ -104,19 +97,21 @@ Place your `.md` textbook files in the working directory. SocraTeX skills look f
 
 ```bash
 cd ~/.codex/socratex && git pull
+cp -r ~/.codex/socratex/plugin/skills/* ~/.codex/skills/
 ```
-
-Skills update instantly through the symlink.
 
 ## Uninstalling
 
+Remove SocraTeX skill folders from `~/.codex/skills/`:
+
 ```bash
-rm ~/.agents/skills/socratex
+cd ~/.codex/skills && rm -rf _shared btw compare derive exam-prep exercise feynman flashcard latex mistake mock-test prereq progress quiz relate review-test roadmap settings solve study study-guide summary translate visualize whatif
 ```
 
 **Windows (PowerShell):**
 ```powershell
-Remove-Item "$env:USERPROFILE\.agents\skills\socratex"
+$skills = @("_shared","btw","compare","derive","exam-prep","exercise","feynman","flashcard","latex","mistake","mock-test","prereq","progress","quiz","relate","review-test","roadmap","settings","solve","study","study-guide","summary","translate","visualize","whatif")
+foreach ($s in $skills) { Remove-Item -Recurse -Force "$env:USERPROFILE\.codex\skills\$s" -ErrorAction SilentlyContinue }
 ```
 
 Optionally delete the clone: `rm -rf ~/.codex/socratex`
@@ -125,10 +120,10 @@ Optionally delete the clone: `rm -rf ~/.codex/socratex`
 
 ### Skills not showing up
 
-1. Verify the symlink: `ls -la ~/.agents/skills/socratex`
-2. Check skills exist: `ls ~/.codex/socratex/plugin/skills`
+1. Verify skills exist: `ls ~/.codex/skills/study/SKILL.md`
+2. Make sure files are real copies, not symlinks (Codex doesn't follow symlinks)
 3. Restart Codex — skills are discovered at startup
 
-### Windows junction issues
+### Windows path issues
 
-Junctions normally work without special permissions. If creation fails, try running PowerShell as administrator.
+Use PowerShell (not cmd). Ensure `$env:USERPROFILE\.codex\skills\` exists before copying.
