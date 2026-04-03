@@ -52,8 +52,22 @@
 
 ### Claude Code
 
+添加市场:
+
 ```
-/install github:Paul-JSN/SocraTeX
+/plugin marketplace add Paul-JSN/SocraTeX
+```
+
+安装插件:
+
+```
+/plugin install SocraTeX@Paul-JSN
+```
+
+重新加载插件:
+
+```
+/reload-plugins
 ```
 
 ### Codex
@@ -65,25 +79,6 @@ Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/So
 开始学习:
 
 ```
-/study ch01
-```
-
----
-
-## 快速开始 (手动)
-
-```bash
-git clone https://github.com/Paul-JSN/SocraTeX.git
-cd SocraTeX
-mkdir -p books/my-textbook
-# 将 .md 文件放入 books/my-textbook/
-```
-
-> **PDF 转换？** 推荐 [MinerU](https://mineru.net) — 免费，保留 LaTeX。
-
-```bash
-claude
-/settings lang=zh
 /study ch01
 ```
 

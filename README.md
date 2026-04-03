@@ -42,8 +42,22 @@ Your .md textbook  ──>  Claude reads it  ──>  Detects subject  ──>  
 
 ### Claude Code
 
+Add the marketplace:
+
 ```
-/install github:Paul-JSN/SocraTeX
+/plugin marketplace add Paul-JSN/SocraTeX
+```
+
+Install the plugin:
+
+```
+/plugin install SocraTeX@Paul-JSN
+```
+
+Reload plugins:
+
+```
+/reload-plugins
 ```
 
 ### Codex

@@ -52,8 +52,22 @@
 
 ### Claude Code
 
+マーケットプレイスを追加:
+
 ```
-/install github:Paul-JSN/SocraTeX
+/plugin marketplace add Paul-JSN/SocraTeX
+```
+
+プラグインをインストール:
+
+```
+/plugin install SocraTeX@Paul-JSN
+```
+
+プラグインをリロード:
+
+```
+/reload-plugins
 ```
 
 ### Codex
@@ -65,25 +79,6 @@ Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/So
 学習を開始:
 
 ```
-/study ch01
-```
-
----
-
-## クイックスタート (手動)
-
-```bash
-git clone https://github.com/Paul-JSN/SocraTeX.git
-cd SocraTeX
-mkdir -p books/my-textbook
-# .md ファイルを books/my-textbook/ に配置
-```
-
-> **PDF変換？** [MinerU](https://mineru.net) 推奨 — 無料、LaTeX保持。
-
-```bash
-claude
-/settings lang=ja
 /study ch01
 ```
 

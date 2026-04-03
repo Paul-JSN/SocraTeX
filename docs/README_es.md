@@ -52,8 +52,22 @@ Solo necesitas archivos `.md`. Dialogo socratico con todas las formulas en LaTeX
 
 ### Claude Code
 
+Agregar el marketplace:
+
 ```
-/install github:Paul-JSN/SocraTeX
+/plugin marketplace add Paul-JSN/SocraTeX
+```
+
+Instalar el plugin:
+
+```
+/plugin install SocraTeX@Paul-JSN
+```
+
+Recargar plugins:
+
+```
+/reload-plugins
 ```
 
 ### Codex
@@ -65,25 +79,6 @@ Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/So
 Empieza a estudiar:
 
 ```
-/study ch01
-```
-
----
-
-## Inicio Rapido (manual)
-
-```bash
-git clone https://github.com/Paul-JSN/SocraTeX.git
-cd SocraTeX
-mkdir -p books/my-textbook
-# Coloca tus archivos .md en books/my-textbook/
-```
-
-> **Convertir PDF?** Recomendamos [MinerU](https://mineru.net) — gratis, preserva LaTeX.
-
-```bash
-claude
-/settings lang=es
 /study ch01
 ```
 

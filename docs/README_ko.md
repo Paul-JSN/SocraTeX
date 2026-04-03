@@ -52,8 +52,22 @@
 
 ### Claude Code
 
+마켓플레이스 추가:
+
 ```
-/install github:Paul-JSN/SocraTeX
+/plugin marketplace add Paul-JSN/SocraTeX
+```
+
+플러그인 설치:
+
+```
+/plugin install SocraTeX@Paul-JSN
+```
+
+플러그인 리로드:
+
+```
+/reload-plugins
 ```
 
 ### Codex
@@ -66,63 +80,6 @@ Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/So
 
 ```
 /study ch01
-```
-
----
-
-## 빠른 시작 (수동)
-
-### 1. 클론
-
-```bash
-git clone https://github.com/Paul-JSN/SocraTeX.git
-cd SocraTeX
-```
-
-### 2. 교재 파일 넣기
-
-```bash
-mkdir -p books/my-textbook
-# .md 파일을 여기에 넣기
-```
-
-> **PDF 변환?** [MinerU](https://mineru.net) 추천 — 무료, LaTeX 보존, 깔끔한 Markdown 출력.
-
-### 3. 공부 시작
-
-<table>
-<tr>
-<th>Claude Code (VS Code) — 전체 기능</th>
-<th>Claude.ai — 간편 사용</th>
-</tr>
-<tr>
-<td>
-
-```bash
-claude
-/settings lang=ko
-/study ch01
-```
-
-VS Code Markdown Preview에서 `session.md` 열면 LaTeX 렌더링됨.
-
-</td>
-<td>
-
-1. claude.ai에서 **프로젝트** 생성
-2. `.md` 파일 → Project Knowledge에 업로드
-3. `claude-ai/system-prompt.md` → Custom Instructions에 붙여넣기
-4. "3장 공부하자" 라고 채팅
-
-</td>
-</tr>
-</table>
-
-### 4. 글로벌 설치 (선택)
-
-```bash
-./install.sh        # macOS / Linux
-./install.ps1       # Windows (PowerShell)
 ```
 
 ---
