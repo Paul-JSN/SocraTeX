@@ -111,7 +111,7 @@ Then start studying:
 | `/latex [expr]` | LaTeX toggle — explain a formula, get source, or convert text to LaTeX |
 | `/progress` | Progress tracker — chapters covered, weak areas, recommendations |
 | `/settings [k=v]` | Configuration — language, difficulty, subject, hints, render mode |
-| `/btw [question]` | Side question — answered in isolation, resumes study flow |
+| `/sideq [question]` | Side question — answered in isolation, resumes study flow |
 
 ---
 

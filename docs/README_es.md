@@ -42,7 +42,7 @@ Solo necesitas archivos `.md`. Dialogo socratico con todas las formulas en LaTeX
 | `/quiz [rango]` | Quiz rapido 10 preguntas — V/F, completar, emparejar definiciones |
 | `/latex [expr]` | Alternar LaTeX — explicar formula, copiar codigo fuente, convertir texto a LaTeX |
 | `/translate [idioma]` | Traducir — preserva LaTeX, soporte bilingue configurable |
-| `/btw [pregunta]` | Pregunta lateral — respuesta aislada via sub-agente, retoma el estudio automaticamente |
+| `/sideq [pregunta]` | Pregunta lateral — respuesta aislada via sub-agente, retoma el estudio automaticamente |
 | `/settings [config]` | Configuracion — idioma, dificultad, anotaciones de terminos, numero de pistas |
 | `/progress` | Seguimiento — capitulos cubiertos, areas debiles, siguientes recomendaciones |
 

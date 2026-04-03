@@ -1,5 +1,5 @@
 ---
-name: btw
+name: sideq
 description: Use when the user asks a side question unrelated to the current study topic and needs an isolated answer without disrupting flow
 ---
 

@@ -87,7 +87,7 @@ These skills use Socratic dialogue — they ask questions and wait for student r
 | `/prereq` | Prerequisite readiness check |
 | `/quiz` | Interactive quiz with scoring |
 | `/whatif` | Hypothetical exploration |
-| `/btw` | Side question |
+| `/sideq` | Side question |
 
 ## Textbook Files
 
