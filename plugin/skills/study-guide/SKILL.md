@@ -3,7 +3,7 @@ name: study-guide
 description: Use when the user needs a structured study plan — concept hierarchy, formula sheet, study order, and time estimates. If an exam date is given, generates a realistic schedule that fits the available time. Works with any STEM subject
 ---
 
-Read `socratex.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/socratex.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Detect the subject from content and adapt the guide structure accordingly.
+Read `SocraTeX.config.md` from the working directory. If not found, read `${CLAUDE_PLUGIN_ROOT}/SocraTeX.config.md`. If neither exists, use defaults: study_language=en, show_original_terms=false, difficulty=adaptive, hints_before_answer=3, render_mode=desktop, subject=auto. Detect the subject from content and adapt the guide structure accordingly.
 
 Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 

@@ -107,7 +107,7 @@ VS Code Markdown Preview에서 `session.md` 열면 LaTeX 렌더링됨.
 
 ## 설정
 
-`socratex.config.md`를 직접 수정하거나 `/settings` 사용:
+`SocraTeX.config.md`를 직접 수정하거나 `/settings` 사용:
 
 ```yaml
 study_language: ko            # 공부 언어

@@ -201,7 +201,7 @@ SocraTeX/
 │   │   └── plugin.json
 │   ├── skills/              # 24 skills (SKILL.md format)
 │   │   └── _shared/         # Core rules, templates, integration map
-│   └── socratex.config.md   # Default settings
+│   └── SocraTeX.config.md   # Default settings
 ├── docs/                    # Translations
 ├── LICENSE
 └── README.md

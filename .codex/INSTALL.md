@@ -10,19 +10,19 @@ Enable SocraTeX skills in Codex via native skill discovery. Clone and symlink.
 
 1. **Clone the SocraTeX repository:**
    ```bash
-   git clone https://github.com/Paul-JSN/SocraTeX.git ~/.codex/socratex
+   git clone https://github.com/Paul-JSN/SocraTeX.git ~/.codex/SocraTeX
    ```
 
 2. **Create the skills symlink:**
    ```bash
    mkdir -p ~/.agents/skills
-   ln -s ~/.codex/socratex/plugin/skills ~/.agents/skills/socratex
+   ln -s ~/.codex/SocraTeX/plugin/skills ~/.agents/skills/SocraTeX
    ```
 
    **Windows (PowerShell):**
    ```powershell
    New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
-   cmd /c mklink /J "$env:USERPROFILE\.agents\skills\socratex" "$env:USERPROFILE\.codex\socratex\plugin\skills"
+   cmd /c mklink /J "$env:USERPROFILE\.agents\skills\SocraTeX" "$env:USERPROFILE\.codex\SocraTeX\plugin\skills"
    ```
 
 3. **Restart Codex** to discover skills.
@@ -30,7 +30,7 @@ Enable SocraTeX skills in Codex via native skill discovery. Clone and symlink.
 ## Verify
 
 ```bash
-ls -la ~/.agents/skills/socratex
+ls -la ~/.agents/skills/SocraTeX
 ```
 
 You should see a symlink pointing to your SocraTeX skills directory with 24 skill folders + `_shared/`.
@@ -38,7 +38,7 @@ You should see a symlink pointing to your SocraTeX skills directory with 24 skil
 ## Updating
 
 ```bash
-cd ~/.codex/socratex && git pull
+cd ~/.codex/SocraTeX && git pull
 ```
 
 Skills update instantly through the symlink.
@@ -46,7 +46,7 @@ Skills update instantly through the symlink.
 ## Uninstalling
 
 ```bash
-rm ~/.agents/skills/socratex
+rm ~/.agents/skills/SocraTeX
 ```
 
-Optionally delete the clone: `rm -rf ~/.codex/socratex`.
+Optionally delete the clone: `rm -rf ~/.codex/SocraTeX`.

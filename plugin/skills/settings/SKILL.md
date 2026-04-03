@@ -3,7 +3,7 @@ name: settings
 description: Use when the user wants to view or change SocraTeX settings — language, term annotation, difficulty, hints, render mode, subject
 ---
 
-If `socratex.config.md` does not exist in the working directory, create it with defaults (copy from `${CLAUDE_PLUGIN_ROOT}/socratex.config.md` if available, otherwise create with defaults: study_language: en, show_original_terms: false, difficulty: adaptive, hints_before_answer: 3, render_mode: desktop, subject: auto) before proceeding. Then read `socratex.config.md`.
+If `SocraTeX.config.md` does not exist in the working directory, create it with defaults (copy from `${CLAUDE_PLUGIN_ROOT}/SocraTeX.config.md` if available, otherwise create with defaults: study_language: en, show_original_terms: false, difficulty: adaptive, hints_before_answer: 3, render_mode: desktop, subject: auto) before proceeding. Then read `SocraTeX.config.md`.
 
 Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
@@ -19,7 +19,7 @@ Otherwise, parse $ARGUMENTS as key=value pairs. Supported keys:
 - `render` → updates `render_mode` (desktop or vscode)
 - `subject` → updates `subject` (auto, math, physics, chemistry, statistics, economics, engineering)
 
-For each key=value pair, use the Edit tool to modify the corresponding line in `socratex.config.md`. Confirm each change.
+For each key=value pair, use the Edit tool to modify the corresponding line in `SocraTeX.config.md`. Confirm each change.
 
 After all changes, display the updated settings table.
 

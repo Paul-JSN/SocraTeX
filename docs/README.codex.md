@@ -21,13 +21,13 @@ Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/So
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/Paul-JSN/SocraTeX.git ~/.codex/socratex
+   git clone https://github.com/Paul-JSN/SocraTeX.git ~/.codex/SocraTeX
    ```
 
 2. Create the skills symlink:
    ```bash
    mkdir -p ~/.agents/skills
-   ln -s ~/.codex/socratex/plugin/skills ~/.agents/skills/socratex
+   ln -s ~/.codex/SocraTeX/plugin/skills ~/.agents/skills/SocraTeX
    ```
 
 3. Restart Codex.
@@ -38,7 +38,7 @@ Use a junction instead of a symlink (works without Developer Mode):
 
 ```powershell
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
-cmd /c mklink /J "$env:USERPROFILE\.agents\skills\socratex" "$env:USERPROFILE\.codex\socratex\plugin\skills"
+cmd /c mklink /J "$env:USERPROFILE\.agents\skills\SocraTeX" "$env:USERPROFILE\.codex\SocraTeX\plugin\skills"
 ```
 
 ## How It Works
@@ -46,7 +46,7 @@ cmd /c mklink /J "$env:USERPROFILE\.agents\skills\socratex" "$env:USERPROFILE\.c
 Codex has native skill discovery — it scans `~/.agents/skills/` at startup, parses SKILL.md frontmatter, and loads skills on demand. SocraTeX skills are made visible through a single symlink:
 
 ```
-~/.agents/skills/socratex/ → ~/.codex/socratex/plugin/skills/
+~/.agents/skills/SocraTeX/ → ~/.codex/SocraTeX/plugin/skills/
 ```
 
 24 skills are discovered automatically. Codex activates them when the task matches a skill's description.
@@ -93,7 +93,7 @@ These skills use Socratic dialogue — they ask questions and wait for student r
 
 Place your `.md` textbook files in the working directory. SocraTeX skills look for textbook content in:
 
-1. `textbook_path` from `socratex.config.md` (if exists in working directory)
+1. `textbook_path` from `SocraTeX.config.md` (if exists in working directory)
 2. `books/` directory
 3. Current working directory
 4. Files provided in conversation
@@ -101,7 +101,7 @@ Place your `.md` textbook files in the working directory. SocraTeX skills look f
 ## Updating
 
 ```bash
-cd ~/.codex/socratex && git pull
+cd ~/.codex/SocraTeX && git pull
 ```
 
 Skills update instantly through the symlink.
@@ -109,22 +109,22 @@ Skills update instantly through the symlink.
 ## Uninstalling
 
 ```bash
-rm ~/.agents/skills/socratex
+rm ~/.agents/skills/SocraTeX
 ```
 
 **Windows (PowerShell):**
 ```powershell
-Remove-Item "$env:USERPROFILE\.agents\skills\socratex"
+Remove-Item "$env:USERPROFILE\.agents\skills\SocraTeX"
 ```
 
-Optionally delete the clone: `rm -rf ~/.codex/socratex`
+Optionally delete the clone: `rm -rf ~/.codex/SocraTeX`
 
 ## Troubleshooting
 
 ### Skills not showing up
 
-1. Verify the symlink: `ls -la ~/.agents/skills/socratex`
-2. Check skills exist: `ls ~/.codex/socratex/plugin/skills`
+1. Verify the symlink: `ls -la ~/.agents/skills/SocraTeX`
+2. Check skills exist: `ls ~/.codex/SocraTeX/plugin/skills`
 3. Restart Codex — skills are discovered at startup
 
 ### Windows junction issues
