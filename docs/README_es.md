@@ -48,7 +48,29 @@ Solo necesitas archivos `.md`. Dialogo socratico con todas las formulas en LaTeX
 
 ---
 
-## Inicio Rapido
+## Instalacion
+
+### Claude Code
+
+```
+/install github:Paul-JSN/SocraTeX
+```
+
+### Codex
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/SocraTeX/refs/heads/main/.codex/INSTALL.md
+```
+
+Empieza a estudiar:
+
+```
+/study ch01
+```
+
+---
+
+## Inicio Rapido (manual)
 
 ```bash
 git clone https://github.com/Paul-JSN/SocraTeX.git

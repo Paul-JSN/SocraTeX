@@ -48,7 +48,29 @@
 
 ---
 
-## 빠른 시작
+## 설치
+
+### Claude Code
+
+```
+/install github:Paul-JSN/SocraTeX
+```
+
+### Codex
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/SocraTeX/refs/heads/main/.codex/INSTALL.md
+```
+
+공부 시작:
+
+```
+/study ch01
+```
+
+---
+
+## 빠른 시작 (수동)
 
 ### 1. 클론
 

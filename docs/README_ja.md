@@ -48,7 +48,29 @@
 
 ---
 
-## クイックスタート
+## インストール
+
+### Claude Code
+
+```
+/install github:Paul-JSN/SocraTeX
+```
+
+### Codex
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/SocraTeX/refs/heads/main/.codex/INSTALL.md
+```
+
+学習を開始:
+
+```
+/study ch01
+```
+
+---
+
+## クイックスタート (手動)
 
 ```bash
 git clone https://github.com/Paul-JSN/SocraTeX.git

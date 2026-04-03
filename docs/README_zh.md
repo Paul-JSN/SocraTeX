@@ -48,7 +48,29 @@
 
 ---
 
-## 快速开始
+## 安装
+
+### Claude Code
+
+```
+/install github:Paul-JSN/SocraTeX
+```
+
+### Codex
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/Paul-JSN/SocraTeX/refs/heads/main/.codex/INSTALL.md
+```
+
+开始学习:
+
+```
+/study ch01
+```
+
+---
+
+## 快速开始 (手动)
 
 ```bash
 git clone https://github.com/Paul-JSN/SocraTeX.git
