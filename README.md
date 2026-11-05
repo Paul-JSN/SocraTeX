@@ -51,7 +51,7 @@ Add the marketplace:
 Install the plugin:
 
 ```
-/plugin install SocraTeX@Paul-JSN
+/plugin install socratex@SocraTeX
 ```
 
 Reload plugins:

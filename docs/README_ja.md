@@ -61,7 +61,7 @@
 プラグインをインストール:
 
 ```
-/plugin install SocraTeX@Paul-JSN
+/plugin install socratex@SocraTeX
 ```
 
 プラグインをリロード:

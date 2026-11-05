@@ -61,7 +61,7 @@ Agregar el marketplace:
 Instalar el plugin:
 
 ```
-/plugin install SocraTeX@Paul-JSN
+/plugin install socratex@SocraTeX
 ```
 
 Recargar plugins:

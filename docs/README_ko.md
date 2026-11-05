@@ -61,7 +61,7 @@
 플러그인 설치:
 
 ```
-/plugin install SocraTeX@Paul-JSN
+/plugin install socratex@SocraTeX
 ```
 
 플러그인 리로드:

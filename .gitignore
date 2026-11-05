@@ -11,3 +11,6 @@ session.html
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Local design mockups
+.mockups/

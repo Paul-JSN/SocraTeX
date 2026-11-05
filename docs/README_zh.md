@@ -61,7 +61,7 @@
 安装插件:
 
 ```
-/plugin install SocraTeX@Paul-JSN
+/plugin install socratex@SocraTeX
 ```
 
 重新加载插件:
