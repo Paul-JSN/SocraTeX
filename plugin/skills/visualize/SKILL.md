@@ -48,10 +48,9 @@ If a browser tool is available (Browser pane, Playwright, Chrome), load the page
 
 ## Hand-off
 
-- **Called by the student:** open the page (`open` on Mac, `xdg-open` on Linux, `start` on Windows; in the Claude Code desktop app, writing the file already shows it), then in chat send the path and one question about what they see when they move a specific control. Continue the dialogue in chat from their answers.
-- **Called while building a `/study` plan** (pre-generation): do not open the page and do not message the student. Return only the path and whether verification passed.
+Open the page (`open` on Mac, `xdg-open` on Linux, `start` on Windows; in the Claude Code desktop app, writing the file already shows it), then in chat send the path and one question about what they see when they move a specific control. Continue the dialogue in chat from their answers.
 
-Append the topic title, key formula and page path to the session file (per `render_mode`) when called by the student.
+Append the topic title, key formula and page path to the session file (per `render_mode`).
 
 ## Text Fallback
 

@@ -22,8 +22,7 @@ Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, L
    - Hook and Check: specific numbers or a specific function, using examples that no other unit teaches.
    - Visual: up to one unit in two; choose the units where moving a parameter shows the mechanism best, and name the page `viz/u<N>-<topic-slug>.html`.
 4. Save it to `progress/<source-slug>-<range-slug>.md` in the working directory (create `progress/` if missing), e.g. `progress/rudin-p47-58.md`.
-5. **Pre-generate the visuals.** If a subagent tool is available (Agent/Task), start one background agent per Visual unit, all in the same message, before teaching begins. Each brief: the working directory, the unit's statement and `Visual:` description, the page path, and "follow `${CLAUDE_PLUGIN_ROOT}/skills/visualize/SKILL.md` in pre-generation mode; return the path and whether verification passed". Mark each unit's Visual line `(building)`. When an agent reports back, mark it `(ready)` or `(failed)`. Without a subagent tool, skip this step; step D builds the page itself.
-6. In chat: the plan path on one line, the numbered unit titles, and one question: ready to start with U1?
+5. In chat: the plan path on one line, the numbered unit titles, and one question: ready to start with U1?
 
 ## 3. Teach One Unit
 
@@ -32,7 +31,7 @@ Run these steps in order. **Each step is its own message, and each message ends 
 - **A. Hook** — ask the unit's hook question before showing the statement. If the student says they don't know, give one concrete number to compute and ask again; that counts as an attempt.
 - **B. Statement** — present the statement as a LaTeX formula with a `study_language` gloss, then ask what it says intuitively. Append the unit heading and statement to the session file (create and open it on first write).
 - **C. Dialogue** — guide with questions (see `${CLAUDE_PLUGIN_ROOT}/skills/study/questioning-techniques.md`). Count attempts per question you ask; the count starts at zero for each new question. When an answer is partly right, say which part is right and ask a question that isolates the wrong part. When attempts on one question reach `hints_before_answer`, explain that point in at most four sentences and ask the student to apply it to a concrete case.
-- **D. Visual** (units marked `Visual:`) — if the page is `(ready)`, open it and send the path plus one question about what the student sees when they move a specific control. If it is still `(building)`, run E first and come back to D when it is ready. If it is `(failed)` or was never started, build it now by the `/visualize` process (`${CLAUDE_PLUGIN_ROOT}/skills/visualize/SKILL.md`). Continue the dialogue from what the student reports seeing.
+- **D. Visual** (units marked `Visual:`) — build the page now by the `/visualize` process (`${CLAUDE_PLUGIN_ROOT}/skills/visualize/SKILL.md`), then send the path plus one question about what the student sees when they move a specific control. Continue the dialogue from what the student reports seeing.
 - **E. Critical thinking** — pose the unit's trigger. The student must produce something: a counterexample, the flaw in a proof, the reason a hypothesis is needed, or a link to an earlier unit.
 - **F. Check** — ask the unit's check question (see Verification). Pass → G. Fail → back to C with a question that isolates the gap.
 - **G. Record and move on** — tick the unit, set `Resume at:` to the next unit's step A, append a Session Log line (what they got, where they stalled, attempts used), add anything shaky to Weak Points, then in one line name the next unit and ask its hook.
