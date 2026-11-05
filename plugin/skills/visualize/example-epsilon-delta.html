@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ε-δ 극한</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css" integrity="sha384-5po7shfMYRqeiRGGNe15zR3Eut1Eycer67e2j0zws+iUa+bgsMoF4VUyJ5TfXQPQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js" integrity="sha384-j2eb15DvbzHR1bFK9+SR9DPOYNtKl240eV6GAKCqB4q9WZn1i4JiTACFmlzymI3A" crossorigin="anonymous"></script>
+<style>
+/* ===== Tokens ===== */
+:root{
+  --bg:#ffffff; --ink:#17191e; --muted:#7a808c; --grid:#eff1f4; --line:#e3e6ea; --panel:#ffffff; --seg:#f1f3f5;
+  --curve:#17191e; --c1:#ff6a2b; --c2:#2f6bff; --c3:#9aa1ad; --ok:#139a4f; --bad:#e5484d;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#101215; --ink:#eceef2; --muted:#8c93a0; --grid:#1b1e23; --line:#2b2f36; --panel:#1b1e23; --seg:#15181c; --curve:#eceef2; }
+}
+
+/* ===== Shell: full-bleed stage, title top-left, status top-right, dock bottom ===== */
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:Geist,Pretendard,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+.stage{position:fixed;inset:0}
+#board{width:100%;height:100%;border:none;border-radius:0;background:transparent}
+.head{position:fixed;top:28px;left:32px;z-index:5;pointer-events:none}
+.head h1{font-size:20px;font-weight:500;letter-spacing:-.01em}
+.head .fx{margin-top:4px;font-size:15px;color:var(--muted)}
+.status{position:fixed;top:28px;right:32px;z-index:5;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;transition:background .3s,color .3s}
+.status.ok{background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
+.status.no{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+.status.swap{animation:swap .35s ease}
+@keyframes swap{from{opacity:.2;transform:translateY(3px)}to{opacity:1;transform:none}}
+.dock{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:5;width:min(880px,calc(100% - 32px));
+  display:flex;align-items:center;gap:22px;padding:12px 20px;border-radius:18px;border:1px solid var(--line);
+  background:color-mix(in srgb,var(--panel) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+
+/* ===== Controls ===== */
+.seg{flex:0 0 220px;display:flex;gap:4px;padding:3px;border-radius:10px;background:var(--seg)}
+.seg button{flex:1;border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;padding:7px 10px;border-radius:8px;cursor:pointer;transition:background .2s,color .2s}
+.seg button[aria-pressed="true"]{background:var(--panel);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.seg button:focus-visible{outline:2px solid var(--c2);outline-offset:1px}
+.row{flex:1;min-width:150px;display:grid;grid-template-columns:18px 1fr 44px;align-items:center;gap:10px}
+.sym{font-family:KaTeX_Math,serif;font-style:italic;font-size:18px;color:var(--c)}
+output{font-variant-numeric:tabular-nums;text-align:right;color:var(--muted);font-size:13px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:20px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:2px;border-radius:2px;background:linear-gradient(90deg,var(--c) var(--p,50%),var(--line) var(--p,50%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;margin-top:-6px;border-radius:50%;background:var(--panel);border:2px solid var(--c);transition:transform .15s}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
+input[type=range]::-moz-range-track{height:2px;background:var(--line)}
+input[type=range]::-moz-range-progress{height:2px;background:var(--c)}
+input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--panel);border:2px solid var(--c)}
+input[type=range]:focus-visible{outline:2px solid var(--c);outline-offset:4px;border-radius:4px}
+.r1{--c:var(--c1)} .r2{--c:var(--c2)} .r3{--c:var(--c3)}
+
+@media (max-width:760px){
+  .head{left:16px;top:16px} .status{left:16px;right:auto;top:72px}
+  .dock{flex-wrap:wrap;gap:10px 16px;bottom:12px;padding:12px 14px}
+  .seg{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="stage"><div id="board" class="jxgbox"></div></div>
+<header class="head"><h1>ε-δ 극한</h1><div class="fx" id="fx"></div></header>
+<div class="status" id="status" role="status"></div>
+<div class="dock">
+  <div class="seg" id="funcs"></div>
+  <label class="row r1"><span class="sym">ε</span><input id="eps" type="range" min="0.02" max="1" step="0.01" aria-label="ε"><output id="epsV"></output></label>
+  <label class="row r2"><span class="sym">δ</span><input id="delta" type="range" min="0.005" max="1" step="0.005" aria-label="δ"><output id="deltaV"></output></label>
+  <label class="row r3"><span class="sym">L</span><input id="L" type="range" step="0.01" aria-label="L"><output id="LV"></output></label>
+</div>
+
+<script>
+/* ===== Math (replace for a new topic) ===== */
+const FUNCS = {
+  square: { label: 'x²', tex: 'f(x)=x^2', a: 1, L: 1, pieces: [[x => x * x, -10, 10]], box: [-1.2, 3.2, 2.6, -1.25], dots: [] },
+  jump: { label: '점프', tex: 'f(x)=\\begin{cases}x&x<1\\\\x+1&x\\ge1\\end{cases}', a: 1, L: 1.5,
+    pieces: [[x => x, -10, 1 - 1e-9], [x => x + 1, 1, 10]], box: [-1.2, 3.7, 2.6, -1.25], dots: [[1, 1, false], [1, 2, true]] },
+  osc: { label: 'sin(1/x)', tex: 'f(x)=\\sin(1/x)', a: 0, L: 0,
+    pieces: [[x => Math.sin(1 / x), -10, -1e-6], [x => Math.sin(1 / x), 1e-6, 10]], box: [-1.5, 2.1, 1.3, -2.2], dots: [] },
+};
+const evalAt = (fn, x) => { for (const [g, lo, hi] of fn.pieces) if (x >= lo && x <= hi) return g(x); return NaN; };
+
+/* target = what the controls say (the truth); view = what is drawn (eases toward target) */
+const target = { key: 'square', eps: 0.5, delta: 0.3, L: 1 };
+const view = { eps: 0.5, delta: 0.3, L: 1, draw: 0 };
+
+function check() {
+  const fn = FUNCS[target.key], n = 3000; let maxErr = 0, wx = null;
+  for (let i = 0; i < n; i++) {
+    const x = fn.a - target.delta + (i + .5) * (2 * target.delta / n);
+    if (Math.abs(x - fn.a) < 1e-12) continue;
+    const e = Math.abs(evalAt(fn, x) - target.L); if (e > maxErr) { maxErr = e; wx = x; }
+  }
+  return { ok: maxErr < target.eps, maxErr, wx };
+}
+const statusText = r => r.ok ? '이 δ면 충분해요' : `x ≈ ${r.wx.toFixed(2)}에서 ε 띠를 벗어나요`;
+
+/* ===== Stage ===== */
+const $ = id => document.getElementById(id);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let board, worst, anim = 0, lastOk = null;
+
+function buildBoard() {
+  if (board) JXG.JSXGraph.freeBoard(board);
+  const fn = FUNCS[target.key], bb = fn.box;
+  const ax = { strokeColor: css('--line'), highlight: false,
+    ticks: { majorHeight: -1, minorTicks: 0, strokeColor: css('--grid'), strokeOpacity: 1, label: { strokeColor: css('--muted'), fontSize: 11 } } };
+  board = JXG.JSXGraph.initBoard('board', { boundingbox: bb, axis: true, showCopyright: false, showNavigation: false,
+    pan: { enabled: false }, zoom: { enabled: false }, defaultAxes: { x: ax, y: ax } });
+  const rect = (attrs, f) => {
+    const c = board.create('curve', [[], []], Object.assign({ highlight: false, strokeWidth: 0 }, attrs));
+    c.updateDataArray = function () { const [x0, x1, y0, y1] = f(); this.dataX = [x0, x1, x1, x0, x0]; this.dataY = [y0, y0, y1, y1, y0]; };
+  };
+  rect({ fillColor: css('--c1'), fillOpacity: 0.13 }, () => [-20, 20, view.L - view.eps, view.L + view.eps]);
+  rect({ fillColor: css('--c2'), fillOpacity: 0.13 }, () => [fn.a - view.delta, fn.a + view.delta, -20, 20]);
+  const guide = { strokeOpacity: .7, dash: 2, strokeWidth: 1, fixed: true, highlight: false };
+  board.create('line', [[0, () => view.L], [1, () => view.L]], Object.assign({ strokeColor: css('--c1') }, guide));
+  board.create('line', [[fn.a, 0], [fn.a, 1]], Object.assign({ strokeColor: css('--c2') }, guide));
+  for (const [f, lo, hi] of fn.pieces) {
+    const a = Math.max(lo, bb[0]), b = Math.min(hi, bb[2]);
+    board.create('functiongraph', [f, a, () => a + (b - a) * view.draw], { strokeColor: css('--curve'), strokeWidth: 2.2, highlight: false, numberPointsHigh: 3000 });
+  }
+  for (const [x, y, filled] of fn.dots) board.create('point', [x, y], { name: '', size: 3.5, fixed: true, highlight: false, showInfobox: false,
+    strokeColor: css('--curve'), fillColor: filled ? css('--curve') : css('--bg'), visible: () => view.draw > .98 });
+  worst = board.create('point', [0, 0], { name: '', size: 4.5, fixed: true, highlight: false, showInfobox: false, visible: false,
+    strokeColor: css('--bg'), strokeWidth: 2, fillColor: css('--bad') });
+}
+
+/* ===== Motion: one rAF loop eases view toward target and draws the curve in ===== */
+function run() { if (!anim) anim = requestAnimationFrame(step); }
+function step() {
+  anim = 0; let moving = false;
+  for (const k of ['eps', 'delta', 'L']) {
+    const d = target[k] - view[k];
+    if (reduced || Math.abs(d) < 1e-4) view[k] = target[k]; else { view[k] += d * 0.22; moving = true; }
+  }
+  if (view.draw < 1) { view.draw = reduced ? 1 : Math.min(1, view.draw + 0.022); moving = true; }
+  board.update();
+  if (moving) run();
+}
+
+/* ===== Controls ===== */
+function setFill(el) { el.style.setProperty('--p', ((el.value - el.min) / (el.max - el.min) * 100) + '%'); }
+function sync() {
+  const r = check(), fn = FUNCS[target.key];
+  $('epsV').textContent = target.eps.toFixed(2); $('deltaV').textContent = target.delta.toFixed(3); $('LV').textContent = target.L.toFixed(2);
+  ['eps', 'delta', 'L'].forEach(k => setFill($(k)));
+  const st = $('status');
+  st.textContent = statusText(r);
+  st.className = 'status ' + (r.ok ? 'ok' : 'no') + (lastOk !== null && lastOk !== r.ok ? ' swap' : '');
+  lastOk = r.ok;
+  if (!r.ok && r.wx !== null) { worst.moveTo([r.wx, evalAt(fn, r.wx)]); worst.setAttribute({ visible: true }); } else worst.setAttribute({ visible: false });
+  run();
+}
+function selectFunc(key) {
+  const fn = FUNCS[key];
+  target.key = key; target.L = fn.L; view.L = fn.L; view.draw = 0; lastOk = null;
+  Object.assign($('L'), { min: fn.L - 1, max: fn.L + 1 }); $('L').value = fn.L;
+  document.querySelectorAll('#funcs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.key === key)));
+  katex.render(fn.tex + ',\\; a=' + fn.a, $('fx'), { throwOnError: false });
+  buildBoard(); sync();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  for (const [key, fn] of Object.entries(FUNCS)) {
+    const b = document.createElement('button'); b.textContent = fn.label; b.dataset.key = key; b.onclick = () => selectFunc(key); $('funcs').appendChild(b);
+  }
+  $('eps').value = target.eps; $('delta').value = target.delta;
+  for (const k of ['eps', 'delta', 'L']) $(k).oninput = e => { target[k] = +e.target.value; sync(); };
+  selectFunc('square');
+  addEventListener('resize', () => { board.resizeContainer($('board').clientWidth, $('board').clientHeight); board.update(); });
+});
+</script>
+</body>
+</html>

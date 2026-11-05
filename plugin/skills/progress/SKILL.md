@@ -7,7 +7,7 @@ Read `SocraTeX.config.md` from the working directory. If not found, read `${CLAU
 
 Read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/core-rules.md` for Socratic method, LaTeX, subject detection, and session file rendering rules. Apply these throughout.
 
-Check the conversation history and any previous study sessions to determine:
+Read every lesson plan in `progress/` in the working directory (unit checkboxes, Session Log, Weak Points); these persist across conversations and are the primary record. Add evidence from the current conversation. Then determine:
 
 **1. Chapters Covered**
 List chapters/sections that have been studied with /study. Mark completion level:

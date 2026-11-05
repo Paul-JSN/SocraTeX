@@ -6,7 +6,7 @@
 
 **Your AI study partner for any STEM textbook.**
 
-Drop your `.md` files — start a Socratic dialogue. Never get direct answers. All math in LaTeX.
+Drop your PDF or `.md` files — start a Socratic dialogue. Never get direct answers. All math in LaTeX.
 
 ---
 
@@ -72,6 +72,7 @@ Then start studying:
 
 ```
 /study ch01
+/study materials/textbook.pdf p.47-58
 ```
 
 ---
@@ -82,7 +83,7 @@ Then start studying:
 
 | Skill | What it does |
 |-------|-------------|
-| `/study [chapter]` | Socratic walkthrough — reads the chapter, asks guiding questions |
+| `/study [source] [range]` | Socratic lesson from a PDF or .md range — builds a unit plan in `progress/`, teaches one step at a time, resumes where you left off |
 | `/exercise [topic]` | Guided practice — incremental hints, tracks attempts |
 | `/solve [problem]` | Worked solution — Claude demonstrates the full solving process |
 | `/derive [formula]` | Step-by-step derivation of formulas, laws, proofs |
@@ -95,7 +96,7 @@ Then start studying:
 | `/whatif [scenario]` | "What if gravity doubled?" — hypothetical exploration (context-isolated) |
 | `/compare [A vs B]` | Side-by-side comparison — definitions, differences, counterexamples |
 | `/relate [concept]` | Cross-discipline connections — how concepts link across fields |
-| `/visualize [concept]` | ASCII diagrams — graphs, circuits, force diagrams, molecular structures |
+| `/visualize [concept]` | Interactive browser visualizations — sliders, draggable points, 3D surfaces, with predict-first prompts and a copy-state button |
 
 ### Test Prep
 
@@ -125,7 +126,7 @@ Then start studying:
 | `/latex [expr]` | LaTeX toggle — explain a formula, get source, or convert text to LaTeX |
 | `/progress` | Progress tracker — chapters covered, weak areas, recommendations |
 | `/settings [k=v]` | Configuration — language, difficulty, subject, hints, render mode |
-| `/sideq [question]` | Side question — answered in isolation, resumes study flow |
+| `/sideq [question]` | Side question — in the Claude Code app opens a side session in split view; elsewhere answered inline, then resumes study flow |
 
 ---
 
@@ -174,7 +175,7 @@ subject: auto                 # auto | math | physics | chemistry | statistics |
 render_mode: desktop          # desktop (browser) | vscode (Markdown Preview)
 difficulty: adaptive          # easy | medium | hard | adaptive
 hints_before_answer: 3        # Minimum hints before revealing solutions
-textbook_path:                # Path to textbook .md files (auto-detected if empty)
+textbook_path:                # Path to textbook PDF/.md files (auto-detected: materials/, books/, working dir)
 ```
 
 **Examples:**
@@ -228,7 +229,7 @@ SocraTeX/
 | Requirement | Notes |
 |-------------|-------|
 | Claude Code | Any active plan |
-| `.md` textbook files | With LaTeX notation (`$...$`, `$$...$$`) |
+| Textbook files | PDF, or `.md` with LaTeX notation (`$...$`, `$$...$$`) |
 | VS Code + [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) | Optional — for session.md preview |
 
 > **No VS Code?** SocraTeX generates `session.html` with KaTeX CDN. Open in any browser — auto-refreshes every 3 seconds.

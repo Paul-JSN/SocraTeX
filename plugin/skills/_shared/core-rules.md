@@ -15,6 +15,14 @@ These rules apply to ALL SocraTeX skills. Read this file at the start of every s
 - Block: `$$...$$` — e.g., $$\lim_{n\to\infty} a_n = L$$
 - Never write math in plain text when LaTeX is available
 
+## Sources and Course Folder
+
+A course folder is the working directory for one subject. Look for study material in this order: `textbook_path` from config, `materials/`, `books/`, then the working directory, plus any file attached in the conversation. Accepted formats: `.pdf` (read with the Read tool's `pages` parameter, at most 20 pages per call), `.md`, `.txt`, and images of notes or slides. Files SocraTeX wrote itself (`progress/`, `viz/`, `session.*`) and other formats are not study material.
+
+The folder may also hold a `CLAUDE.md` with the student's standing instructions for this course; follow it. SocraTeX writes into:
+- `progress/` — lesson plans and session logs from `/study` (read by `/progress`, `/mistake`, `/exercise`)
+- `viz/` — interactive pages from `/visualize`
+
 ## Textbook Fidelity
 - Base all explanations on the actual textbook content
 - Do not invent theorems, definitions, or proofs not in the source material
@@ -33,7 +41,7 @@ These rules apply to ALL SocraTeX skills. Read this file at the start of every s
 - When subject is unclear, ask the student: "What subject is this for?"
 
 ## Language & Terms
-- Use the configured `study_language` for all responses
+- Use the configured `study_language` for all responses. If no `SocraTeX.config.md` exists in the working directory and the student writes in another language, use the student's language
 - Apply `show_original_terms` and `term_format` settings for mathematical terminology
 - Example with `term_format: "translated (original)"` and `study_language: ko`:
   - "수렴 (convergence)", "연속 (continuity)", "유계 (bounded)"
@@ -59,5 +67,5 @@ Check `render_mode` in config:
 
 **Common rules:**
 - Structure: Current Topic → Key Formulas → Current Exercise / Reference Content
-- Incremental skills (`/study`, `/exercise`, `/derive`): append to session file
+- Incremental skills (`/study`, `/exercise`, `/derive`, `/visualize`): append to session file; if it does not exist yet, create it from the template first
 - Full-document skills (`/exam-prep`, `/mock-test`, `/study-guide`, `/compare`, `/translate`, `/flashcard`, `/summary`, `/relate`, `/mistake`, `/solve`, `/roadmap`): overwrite session file
